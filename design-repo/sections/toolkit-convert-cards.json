@@ -1,0 +1,72 @@
+{
+  "id": "section.toolkit-convert-cards",
+  "layer": "section",
+  "purpose": "Two side-by-side 766px beige cards (one-command conversion / add new architectures), each with a bullet list, CTA link, and a terminal-transcript photo footer; followed by one full-width panel for custom/non-standard layers.",
+  "measuredFrom": "src/pages/ConversionToolkit.jsx:99-227",
+  "content": {
+    "cards": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "required": true,
+      "itemFields": {
+        "eyebrow": {
+          "maxWords": 5
+        },
+        "heading": {
+          "maxWords": 6
+        },
+        "body": {
+          "maxWords": 35
+        },
+        "points": {
+          "maxItemsWords": 12
+        },
+        "ctaLabel": {
+          "maxWords": 6
+        }
+      }
+    },
+    "customLayerPanel": {
+      "type": "object",
+      "required": true,
+      "fields": {
+        "heading": {
+          "maxWords": 10
+        },
+        "body": {
+          "maxWords": 40
+        },
+        "ctaLabel": {
+          "maxWords": 6
+        }
+      }
+    }
+  },
+  "constraints": {
+    "onePerPage": true,
+    "toolkitRouteOnly": true
+  },
+  "motion": {
+    "pattern": "scroll-reveal",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": false,
+    "breakpoints": {
+      "nav-810": {
+        "layoutChange": "spacing-shift",
+        "description": "Card side padding is removed (!px-0 -> min-[810px]:!px-6) and card thumbnail height grows from 314px to 492px; a hidden feature list is shown (flex) at 810px.",
+        "citation": "src/pages/ConversionToolkit.jsx:145,153,167"
+      },
+      "product-1200": {
+        "layoutChange": "grid-column-count-change",
+        "description": "Convert-format cards go from a single stacked column to a 2-column grid; the custom-layers callout below switches from a 3-column grid (min-[1200px]) at the follow-on strip.",
+        "citation": "src/pages/ConversionToolkit.jsx:146,211"
+      }
+    }
+  },
+  "assetRoles": {
+    "cardBackdrop": "photographic-backdrop"
+  }
+}

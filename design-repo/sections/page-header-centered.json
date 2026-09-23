@@ -1,0 +1,36 @@
+{
+  "id": "section.page-header-centered",
+  "layer": "section",
+  "purpose": "Centered page-top eyebrow + h1, used where the page opens with a short label above the heading (Careers).",
+  "measuredFrom": "src/pages/Careers.jsx:40-47",
+  "content": {
+    "eyebrow": {
+      "type": "string",
+      "maxWords": 3,
+      "required": true
+    },
+    "heading": {
+      "type": "string",
+      "maxWords": 16,
+      "required": true
+    }
+  },
+  "constraints": {
+    "mustBeFirst": true,
+    "onePerPage": true
+  },
+  "motion": {
+    "pattern": "scroll-reveal",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": false,
+    "breakpoints": {
+      "md-768": {
+        "layoutChange": "spacing-shift",
+        "description": "Shell vertical padding grows from 32/32px to 48/64px (md), then to 64/80px at lg.",
+        "citation": "src/pages/Careers.jsx:46"
+      }
+    }
+  }
+}

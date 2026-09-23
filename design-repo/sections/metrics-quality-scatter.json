@@ -1,0 +1,31 @@
+{
+  "id": "section.metrics-quality-scatter",
+  "layer": "section",
+  "purpose": "Quantization-quality scatter plot panel (speed vs. quality-retained, decorative dot cloud).",
+  "measuredFrom": "src/pages/Metrics.jsx:172-185",
+  "content": {
+    "title": {
+      "type": "string",
+      "maxWords": 4,
+      "required": true
+    },
+    "body": {
+      "type": "string",
+      "maxWords": 24,
+      "required": true
+    }
+  },
+  "constraints": {
+    "onePerPage": true,
+    "metricsRouteOnly": true
+  },
+  "motion": {
+    "pattern": "scroll-reveal",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": true,
+    "breakpoints": {},
+    "citation": "src/pages/Metrics.jsx:172-185 \u2014 no min-[Npx]:/md:/lg: class present in this component's range; the scatter panel layout is fixed at every viewport width."
+  }
+}

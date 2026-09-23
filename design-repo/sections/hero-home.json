@@ -1,0 +1,42 @@
+{
+  "id": "section.hero-home",
+  "layer": "section",
+  "purpose": "Homepage hero: headline + supporting copy + primary composition (chat/app visual).",
+  "measuredFrom": "src/components/Hero.jsx:1-158",
+  "content": {
+    "headline": {
+      "type": "string",
+      "maxWords": 14,
+      "required": true
+    },
+    "subhead": {
+      "type": "string",
+      "maxWords": 30,
+      "required": true
+    }
+  },
+  "constraints": {
+    "mustBeFirst": true,
+    "onePerPage": true,
+    "homeRouteOnly": true
+  },
+  "motion": {
+    "pattern": "none",
+    "reducedMotionFallback": "not applicable \u2014 hero renders immediately above the fold with no entry motion; not wrapped in Reveal (src/pages/Home.jsx: Hero is the only stacked section not passed through Reveal)"
+  },
+  "responsive": {
+    "noResponsiveChange": false,
+    "breakpoints": {
+      "md-768": {
+        "layoutChange": "spacing-shift",
+        "description": "Visual panel height grows from 340px to 406px and top spacing/gaps increase.",
+        "citation": "src/components/Hero.jsx:135,150"
+      },
+      "lg-1024": {
+        "layoutChange": "column-to-row",
+        "description": "Heading+visual stack vertically (flex-col) below 1024px; at lg the container switches to `lg:block` with the visual panel absolutely positioned beside the heading (720px tall, 958px wide, min-height 720px).",
+        "citation": "src/components/Hero.jsx:137,150-151"
+      }
+    }
+  }
+}

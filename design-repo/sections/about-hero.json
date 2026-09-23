@@ -1,0 +1,32 @@
+{
+  "id": "section.about-hero",
+  "layer": "section",
+  "purpose": "Centered 720px hero heading, no supporting paragraph, followed by a full-width hairline divider.",
+  "measuredFrom": "src/pages/AboutUs.jsx:79-88",
+  "content": {
+    "headline": {
+      "type": "string",
+      "maxWords": 22,
+      "required": true
+    }
+  },
+  "constraints": {
+    "mustBeFirst": true,
+    "onePerPage": true,
+    "aboutRouteOnly": true
+  },
+  "motion": {
+    "pattern": "scroll-reveal",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": false,
+    "breakpoints": {
+      "nav-810": {
+        "layoutChange": "width-constraint-change",
+        "description": "Heading column widens from 276px (left-aligned) to 720px and becomes centered; top padding grows from 20px to 80px.",
+        "citation": "src/pages/AboutUs.jsx:69-70"
+      }
+    }
+  }
+}

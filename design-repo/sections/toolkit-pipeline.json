@@ -1,0 +1,43 @@
+{
+  "id": "section.toolkit-pipeline",
+  "layer": "section",
+  "purpose": "Three-up pipeline card grid: draft-model training, quantization, validation.",
+  "measuredFrom": "src/pages/ConversionToolkit.jsx:70-73, 229-247",
+  "content": {
+    "heading": {
+      "type": "string",
+      "maxWords": 16,
+      "required": true
+    },
+    "cards": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "required": true,
+      "itemFields": {
+        "heading": {
+          "maxWords": 10
+        },
+        "body": {
+          "maxWords": 35
+        }
+      }
+    }
+  },
+  "constraints": {
+    "onePerPage": true,
+    "toolkitRouteOnly": true
+  },
+  "motion": {
+    "pattern": "scroll-reveal",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": true,
+    "breakpoints": {},
+    "citation": "src/pages/ConversionToolkit.jsx:70-73,229-247 \u2014 no min-[Npx]:/md:/lg: class present in either cited range; the pipeline diagram layout is fixed at every viewport width."
+  },
+  "assetRoles": {
+    "cardIcon": "decorative-icon"
+  }
+}

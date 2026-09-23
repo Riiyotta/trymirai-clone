@@ -1,0 +1,36 @@
+{
+  "id": "section.execution-stack",
+  "layer": "section",
+  "purpose": "'1,000 t/s execution stack' section.",
+  "measuredFrom": "src/components/ExecutionStack.jsx:1-114",
+  "content": {
+    "heading": {
+      "type": "string",
+      "maxWords": 10,
+      "required": true
+    },
+    "body": {
+      "type": "string",
+      "maxWords": 40,
+      "required": false
+    }
+  },
+  "constraints": {
+    "onePerPage": true,
+    "homeRouteOnly": true
+  },
+  "motion": {
+    "pattern": "scroll-reveal",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": false,
+    "breakpoints": {
+      "md-768": {
+        "layoutChange": "grid-column-count-change",
+        "description": "Single stacked column becomes a 2-column grid at md; the image tile reorders from after the text (order-last) to before it (order-none).",
+        "citation": "src/components/ExecutionStack.jsx:82-83"
+      }
+    }
+  }
+}

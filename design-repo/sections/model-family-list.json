@@ -1,0 +1,38 @@
+{
+  "id": "section.model-family-list",
+  "layer": "section",
+  "purpose": "Repeated family sections: logo + name + provenance, a horizontally-scrolling checkpoint chip row (when >1 checkpoint), and a checkpoint card with Medium/Large variant rows (speed + size).",
+  "measuredFrom": "src/pages/LocalModels.jsx:15-134",
+  "content": {
+    "families": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 6,
+      "required": true
+    }
+  },
+  "constraints": {
+    "onePerPage": true,
+    "localModelsRouteOnly": true
+  },
+  "motion": {
+    "pattern": "hover-only",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": false,
+    "breakpoints": {
+      "md-768": {
+        "layoutChange": "column-to-row",
+        "description": "Each model row's action buttons stack vertically below 768px and become a horizontal row at md; provider icon grows from 24px to 40px.",
+        "citation": "src/pages/LocalModels.jsx:95,107"
+      }
+    }
+  },
+  "assetRoles": {
+    "familyLogo": "third-party-company-logo"
+  },
+  "notes": [
+    "Speed/size figures are representative placeholders for this clone, not Mirai's published measurements \u2014 src/pages/LocalModels.jsx top-of-file comment."
+  ]
+}

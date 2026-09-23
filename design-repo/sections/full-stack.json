@@ -1,0 +1,36 @@
+{
+  "id": "section.full-stack",
+  "layer": "section",
+  "purpose": "Dark 'full on-device stack' band.",
+  "measuredFrom": "src/components/FullStack.jsx:1-60",
+  "content": {
+    "heading": {
+      "type": "string",
+      "maxWords": 10,
+      "required": true
+    },
+    "body": {
+      "type": "string",
+      "maxWords": 40,
+      "required": false
+    }
+  },
+  "constraints": {
+    "onePerPage": true,
+    "homeRouteOnly": true
+  },
+  "motion": {
+    "pattern": "scroll-reveal",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": false,
+    "breakpoints": {
+      "lg-1024": {
+        "layoutChange": "column-to-row",
+        "description": "Each layer row stacks its label/detail vertically below 1024px; at lg, rows become a fixed 64px-tall horizontal layout via `lg:contents`, functioning like table rows.",
+        "citation": "src/components/FullStack.jsx:37,43,49"
+      }
+    }
+  }
+}

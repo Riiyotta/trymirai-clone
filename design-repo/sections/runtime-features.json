@@ -1,0 +1,43 @@
+{
+  "id": "section.runtime-features",
+  "layer": "section",
+  "purpose": "Two-column feature accordion (dark cards) beside a photo plate with a floating benchmark terminal card.",
+  "measuredFrom": "src/pages/InferenceRuntime.jsx:388-429",
+  "content": {
+    "heading": {
+      "type": "string",
+      "maxWords": 8,
+      "required": true
+    },
+    "features": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 5,
+      "required": true,
+      "itemFields": {
+        "heading": {
+          "maxWords": 6
+        },
+        "body": {
+          "maxWords": 35
+        }
+      }
+    }
+  },
+  "constraints": {
+    "onePerPage": true,
+    "runtimeRouteOnly": true
+  },
+  "motion": {
+    "pattern": "accordion-expand",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": true,
+    "breakpoints": {},
+    "citation": "src/pages/InferenceRuntime.jsx:388-429 \u2014 no min-[Npx]:/md:/lg: class present anywhere in this static terminal-output panel; it renders identically at every viewport width."
+  },
+  "assetRoles": {
+    "backdrop": "photographic-backdrop"
+  }
+}

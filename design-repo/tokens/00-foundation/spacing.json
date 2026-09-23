@@ -1,0 +1,29 @@
+{
+  "$description": "Layout width/gap constants actually referenced across the codebase (grep-verified: tailwind.config.js maxWidth + the shell utility + the section-rhythm gaps used repeatedly in pages/components).",
+  "measuredFrom": "tailwind.config.js:50, src/index.css:39-42, src/pages/Home.jsx:12-14 (Gap = h-24 = 96px), src/components/Shared.jsx SectionHead (pt-20 / min-[810px]:pt-[120px])",
+  "maxWidth": {
+    "shell": { "value": "1200px", "citation": "tailwind.config.js:50", "usage": "primary content column max-width" }
+  },
+  "shellPadding": {
+    "mobile": { "value": "20px (px-5)", "citation": "src/index.css:39-42" },
+    "min1240": { "value": "0px (px-0, shell hits its own 1200px cap)", "citation": "src/index.css:39-42" }
+  },
+  "sectionRhythm": {
+    "homeGap": { "value": "96px (h-24)", "citation": "src/pages/Home.jsx:12-14", "usage": "explicit rail between every stacked homepage section" },
+    "sectionHeadTop": { "mobile": "80px (pt-20)", "min810": "120px (pt-[120px])", "citation": "src/components/Shared.jsx SectionHead" },
+    "faqSectionPad": { "mobile": "80px/80px", "min810": "120px/132px", "citation": "src/components/Shared.jsx Faq" },
+    "perfectForTop": { "mobile": "80px", "min810": "120px", "citation": "src/components/Shared.jsx PerfectFor" }
+  },
+  "radiusInUse": {
+    "none-hairline-cards": { "value": "0px", "usage": "beige bordered cards (border-[0.5px] border-hairline, no radius) used across PerfectFor/Faq/ModelCards/pipeline cards" },
+    "sm": { "value": "4px", "usage": "blog cover images, closing-band terminal radius group" },
+    "md": { "value": "8px", "usage": "metrics chart panels, benchmark strip outer border" },
+    "lg": { "value": "10px", "usage": "contact card, closing-band terminal card" },
+    "xl": { "value": "12px", "usage": "terminal card default radius, browser-mock window" },
+    "full": { "value": "9999px", "usage": "pill badges (family chip on chat-for-mac, avatar circle)" }
+  },
+  "hairlineWidths": {
+    "standard": "0.5px",
+    "note": "The vast majority of borders in this codebase are border-[0.5px], not the Tailwind default 1px — this is a deliberate, repeated pattern (grep count: 60+ occurrences of border-[0.5px]) and must be preserved as the default rule border width."
+  }
+}

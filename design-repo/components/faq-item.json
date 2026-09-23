@@ -1,0 +1,17 @@
+{
+  "id": "component.faq-item",
+  "layer": "component",
+  "purpose": "Single accordion row: question + chevron-cross toggle, expanding answer via grid-template-rows transition.",
+  "citation": "src/components/Shared.jsx:207-238 (Faq item)",
+  "motion": "accordion-expand",
+  "props": {
+    "question": {
+      "type": "string",
+      "maxWords": 14
+    },
+    "answer": {
+      "type": "string",
+      "maxWords": 45
+    }
+  }
+}

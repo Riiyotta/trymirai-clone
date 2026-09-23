@@ -1,0 +1,44 @@
+{
+  "id": "section.model-cards",
+  "layer": "section",
+  "purpose": "Grid of model-family cards linking to /local-models.",
+  "measuredFrom": "src/components/Shared.jsx:366-390 (ModelCards)",
+  "content": {
+    "title": {
+      "type": "string",
+      "maxWords": 10,
+      "required": true
+    },
+    "cards": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 4,
+      "required": true
+    }
+  },
+  "constraints": {
+    "onePerPage": true
+  },
+  "motion": {
+    "pattern": "scroll-reveal",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": false,
+    "breakpoints": {
+      "nav-810": {
+        "layoutChange": "spacing-shift",
+        "description": "Section vertical padding grows from 80px to 120px and heading bottom-margin from 24px to 48px.",
+        "citation": "src/components/Shared.jsx:371-372"
+      },
+      "product-1200": {
+        "layoutChange": "grid-column-count-change",
+        "description": "Model card grid goes from a single stacked column to a 3-column grid.",
+        "citation": "src/components/Shared.jsx:376"
+      }
+    }
+  },
+  "assetRoles": {
+    "mark": "third-party-company-logo"
+  }
+}

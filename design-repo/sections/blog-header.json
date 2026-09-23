@@ -1,0 +1,37 @@
+{
+  "id": "section.blog-header",
+  "layer": "section",
+  "purpose": "Centered blog index header: h1 + supporting line.",
+  "measuredFrom": "src/pages/Blog.jsx:20-26",
+  "content": {
+    "heading": {
+      "type": "string",
+      "maxWords": 4,
+      "required": true
+    },
+    "subhead": {
+      "type": "string",
+      "maxWords": 16,
+      "required": true
+    }
+  },
+  "constraints": {
+    "mustBeFirst": true,
+    "onePerPage": true,
+    "blogIndexRouteOnly": true
+  },
+  "motion": {
+    "pattern": "scroll-reveal",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": false,
+    "breakpoints": {
+      "nav-810": {
+        "layoutChange": "spacing-shift",
+        "description": "Side padding (20px) is removed and top padding grows from 32px to 56px.",
+        "citation": "src/pages/Blog.jsx:25"
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "id": "component.frame",
+  "layer": "component",
+  "purpose": "Hairline rectangle frame with optional corner dot marks around a photo/terminal composition; the project's signature 'framed panel' treatment.",
+  "citation": "src/components/Shared.jsx:52-68 (Frame)",
+  "composesPrimitives": [
+    "divider-hairline"
+  ],
+  "props": {
+    "tight": {
+      "type": "boolean",
+      "default": false
+    },
+    "hideOnMobile": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

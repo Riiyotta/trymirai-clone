@@ -1,0 +1,504 @@
+{
+  "$description": "One entry per distinct real page shape observed in src/App.jsx + src/pages/*.jsx. Every real route (13 real routes + the catch-all) is mapped to exactly one template; a blog index/post and a legal privacy/terms pair are genuinely the same shape and share one template each, while the two product pages (toolkit/runtime) diverge in real section ORDER and so are kept as two separate templates rather than forced into one.",
+  "templates": {
+    "home": {
+      "displayName": "Home",
+      "routes": [
+        "/"
+      ],
+      "citation": "src/pages/Home.jsx:1-38",
+      "nodes": [
+        {
+          "section": "section.shell-navbar",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.hero-home",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.appgrid",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.speed",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.execution-stack",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.cloud-vs-device",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.co-design",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.full-stack",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.closing-home",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.shell-footer",
+          "required": true,
+          "repeatable": false
+        }
+      ]
+    },
+    "product-toolkit": {
+      "displayName": "Product page \u2014 conversion & optimization toolkit",
+      "routes": [
+        "/conversion-optimization-toolkit"
+      ],
+      "citation": "src/pages/ConversionToolkit.jsx:1-260",
+      "nodes": [
+        {
+          "section": "section.shell-navbar",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.hero-product",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.toolkit-convert-cards",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.toolkit-pipeline",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.bench-strip",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.model-cards",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.perfect-for",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.faq",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.closing-band",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.shell-footer",
+          "required": true,
+          "repeatable": false
+        }
+      ]
+    },
+    "product-runtime": {
+      "displayName": "Product page \u2014 inference runtime",
+      "routes": [
+        "/inference-runtime"
+      ],
+      "citation": "src/pages/InferenceRuntime.jsx:1-461",
+      "nodes": [
+        {
+          "section": "section.shell-navbar",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.hero-product",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.perfect-for",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.bench-strip",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.runtime-install-steps",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.runtime-install-matrix",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.runtime-features",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.model-cards",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.faq",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.closing-band",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.shell-footer",
+          "required": true,
+          "repeatable": false
+        }
+      ],
+      "knownGap": "PROCESS.md \u00a711: this route runs at 60% of the original's measured page height and has only 8 of the original live site's 10 sections. The node list above reflects what is actually BUILT in this repo, not the live trymirai.com \u2014 do not treat this template as 100% parity with the original."
+    },
+    "chat-mac": {
+      "displayName": "Chat for Mac (macOS app landing page)",
+      "routes": [
+        "/chat-for-mac"
+      ],
+      "citation": "src/pages/ChatForMac.jsx:1-96",
+      "nodes": [
+        {
+          "section": "section.shell-navbar",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.hero-chat-mac",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.framed-screenshot",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.shell-footer",
+          "required": true,
+          "repeatable": false
+        }
+      ]
+    },
+    "contact": {
+      "displayName": "Contact / interest form",
+      "routes": [
+        "/i-am-interested"
+      ],
+      "citation": "src/pages/Interested.jsx:1-88",
+      "nodes": [
+        {
+          "section": "section.shell-navbar",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.page-header-simple",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.contact-frame",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.shell-footer",
+          "required": true,
+          "repeatable": false
+        }
+      ]
+    },
+    "local-models": {
+      "displayName": "Local models library",
+      "routes": [
+        "/local-models"
+      ],
+      "citation": "src/pages/LocalModels.jsx:1-146",
+      "nodes": [
+        {
+          "section": "section.shell-navbar",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.page-header-simple",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.model-family-list",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.shell-footer",
+          "required": true,
+          "repeatable": false
+        }
+      ]
+    },
+    "metrics": {
+      "displayName": "Benchmarks / metrics",
+      "routes": [
+        "/metrics"
+      ],
+      "citation": "src/pages/Metrics.jsx:1-217",
+      "nodes": [
+        {
+          "section": "section.shell-navbar",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.metrics-header",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.metrics-sidebar-nav",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.metrics-chart-panel",
+          "required": true,
+          "repeatable": true,
+          "minCount": 3,
+          "maxCount": 3
+        },
+        {
+          "section": "section.metrics-quality-scatter",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.metrics-how-we-measure",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.shell-footer",
+          "required": true,
+          "repeatable": false
+        }
+      ]
+    },
+    "about": {
+      "displayName": "About us",
+      "routes": [
+        "/about-us"
+      ],
+      "citation": "src/pages/AboutUs.jsx:1-198",
+      "nodes": [
+        {
+          "section": "section.shell-navbar",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.about-hero",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.about-prose-block",
+          "required": true,
+          "repeatable": true,
+          "minCount": 5,
+          "maxCount": 6
+        },
+        {
+          "section": "section.about-team-cards",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.about-backer-grid",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.shell-footer",
+          "required": true,
+          "repeatable": false
+        }
+      ],
+      "knownGap": "PROCESS.md \u00a711 and README.md: this route runs at ~79-80% of the original's measured page height \u2014 the layout/column-width bug (grid vs. single-column article) was already fixed, but body copy remains thinner than the original's."
+    },
+    "careers": {
+      "displayName": "Careers",
+      "routes": [
+        "/careers"
+      ],
+      "citation": "src/pages/Careers.jsx:1-124",
+      "nodes": [
+        {
+          "section": "section.shell-navbar",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.page-header-centered",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.careers-roles-list",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.careers-about-why",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.careers-closing-cta",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.shell-footer",
+          "required": true,
+          "repeatable": false
+        }
+      ]
+    },
+    "blog-index": {
+      "displayName": "Research / blog index",
+      "routes": [
+        "/blog"
+      ],
+      "citation": "src/pages/Blog.jsx:20-51",
+      "nodes": [
+        {
+          "section": "section.shell-navbar",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.blog-header",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.blog-post-list",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.shell-footer",
+          "required": true,
+          "repeatable": false
+        }
+      ]
+    },
+    "blog-post": {
+      "displayName": "Research / blog post",
+      "routes": [
+        "/blog/:slug"
+      ],
+      "citation": "src/pages/Blog.jsx:53-83",
+      "nodes": [
+        {
+          "section": "section.shell-navbar",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.blog-post-article",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.shell-footer",
+          "required": true,
+          "repeatable": false
+        }
+      ]
+    },
+    "legal": {
+      "displayName": "Legal (privacy policy / terms of use)",
+      "routes": [
+        "/privacy-policy",
+        "/terms-of-use"
+      ],
+      "citation": "src/pages/Legal.jsx:1-32",
+      "nodes": [
+        {
+          "section": "section.shell-navbar",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.legal-body",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.shell-footer",
+          "required": true,
+          "repeatable": false
+        }
+      ]
+    },
+    "not-found": {
+      "displayName": "404 / not found",
+      "routes": [
+        "*"
+      ],
+      "citation": "src/pages/NotFound.jsx:1-15",
+      "nodes": [
+        {
+          "section": "section.shell-navbar",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.notfound-body",
+          "required": true,
+          "repeatable": false
+        },
+        {
+          "section": "section.shell-footer",
+          "required": true,
+          "repeatable": false
+        }
+      ]
+    }
+  }
+}

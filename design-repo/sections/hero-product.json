@@ -1,0 +1,64 @@
+{
+  "id": "section.hero-product",
+  "layer": "section",
+  "purpose": "Product-page hero: eyebrow + hairline rule, serif title, supporting paragraph, CTA, and a right-hand framed terminal composition on a sunset plate.",
+  "measuredFrom": "src/pages/ConversionToolkit.jsx:94-138, src/pages/InferenceRuntime.jsx:210-243",
+  "content": {
+    "eyebrow": {
+      "type": "string",
+      "maxWords": 5,
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "maxWords": 14,
+      "required": true
+    },
+    "body": {
+      "type": "string",
+      "maxWords": 30,
+      "required": true
+    },
+    "ctaLabel": {
+      "type": "string",
+      "maxWords": 4,
+      "required": false
+    },
+    "terminalCaption": {
+      "type": "string",
+      "maxWords": 6,
+      "required": false
+    },
+    "terminalLines": {
+      "type": "array",
+      "maxItems": 20,
+      "required": false
+    }
+  },
+  "constraints": {
+    "mustBeFirst": true,
+    "onePerPage": true
+  },
+  "motion": {
+    "pattern": "none",
+    "reducedMotionFallback": "not applicable \u2014 hero renders immediately, not wrapped in Reveal (src/pages/ConversionToolkit.jsx:94-138, src/pages/InferenceRuntime.jsx:210-243 \u2014 Reveal usage begins only in the sections that follow the hero)"
+  },
+  "responsive": {
+    "noResponsiveChange": false,
+    "breakpoints": {
+      "nav-810": {
+        "layoutChange": "width-constraint-change",
+        "description": "Heading max-width grows (e.g. 265px -> 480/671px) and section top padding/gaps increase.",
+        "citation": "src/pages/InferenceRuntime.jsx:207,214; src/pages/ConversionToolkit.jsx:86,93"
+      },
+      "product-1200": {
+        "layoutChange": "column-to-row",
+        "description": "Text column and visual stack vertically below 1200px; at 1200px they become a side-by-side row with the text column fixed at 572px wide.",
+        "citation": "src/pages/InferenceRuntime.jsx:209-210; src/pages/ConversionToolkit.jsx:88-89"
+      }
+    }
+  },
+  "assetRoles": {
+    "backdrop": "photographic-backdrop"
+  }
+}

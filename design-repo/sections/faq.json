@@ -1,0 +1,49 @@
+{
+  "id": "section.faq",
+  "layer": "section",
+  "purpose": "Accordion FAQ list, single-open-at-a-time.",
+  "measuredFrom": "src/components/Shared.jsx:203-241 (Faq)",
+  "content": {
+    "title": {
+      "type": "string",
+      "maxWords": 6,
+      "required": true
+    },
+    "items": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 8,
+      "required": true,
+      "itemFields": {
+        "question": {
+          "maxWords": 14
+        },
+        "answer": {
+          "maxWords": 45
+        }
+      }
+    }
+  },
+  "constraints": {
+    "onePerPage": true
+  },
+  "motion": {
+    "pattern": "accordion-expand",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": false,
+    "breakpoints": {
+      "nav-810": {
+        "layoutChange": "spacing-shift",
+        "description": "Accordion row padding grows from 16px to 24px and row gap from 8px to 12px; section vertical padding grows from 80px to 120/132px.",
+        "citation": "src/components/Shared.jsx:176-181,190"
+      },
+      "product-1200": {
+        "layoutChange": "width-constraint-change",
+        "description": "Side padding is removed entirely once the shell reaches its 1200px cap.",
+        "citation": "src/components/Shared.jsx:180"
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "id": "section.runtime-install-matrix",
+  "layer": "section",
+  "purpose": "Language/distribution/snippet table plus a promise list and 'Read the docs' link.",
+  "measuredFrom": "src/pages/InferenceRuntime.jsx:354-386",
+  "content": {
+    "heading": {
+      "type": "string",
+      "maxWords": 8,
+      "required": true
+    },
+    "rows": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 6,
+      "required": true
+    },
+    "promises": {
+      "type": "array",
+      "maxItems": 4,
+      "required": true,
+      "itemFields": {
+        "maxWords": 14
+      }
+    }
+  },
+  "constraints": {
+    "onePerPage": true,
+    "runtimeRouteOnly": true
+  },
+  "motion": {
+    "pattern": "scroll-reveal",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": false,
+    "breakpoints": {
+      "nav-810": {
+        "layoutChange": "spacing-shift",
+        "description": "Feature-list row detail spacing/leading increases (text-[15px] -> 17px).",
+        "citation": "src/pages/InferenceRuntime.jsx:381"
+      },
+      "product-1200": {
+        "layoutChange": "shown-above-breakpoint",
+        "description": "The 400/420px-tall illustration panel is hidden below 1200px and shown (block, 560px min-height) at 1200px.",
+        "citation": "src/pages/InferenceRuntime.jsx:381 (relative hidden ... min-[1200px]:block)"
+      }
+    }
+  },
+  "assetRoles": {
+    "languageMark": "language-icon"
+  }
+}

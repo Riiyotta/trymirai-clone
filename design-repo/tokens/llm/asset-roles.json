@@ -1,0 +1,85 @@
+{
+  "$description": "Closed assetRole enum wired through schema/pagespec.schema.json (definitions.assetRole) and every section contract's media fields. This project's source is a real company's site (trymirai.com / Mirai Labs) reference-cloned into this repo — see README.md and PROCESS.md §7/§10 — so every role below carries explicit AI-generation guidance AND explicit licensing guidance. This is treated as a compliance requirement, not a style note.",
+  "measuredFrom": "public/ asset inventory (~40 files) cross-referenced against every <img>/background usage in src/**/*.jsx",
+  "roles": {
+    "brand-mark-placeholder": {
+      "description": "The Mirai Labs wordmark (an inline SVG <text> placeholder, src/components/Navbar.jsx Wordmark) and the canvas-drawn orbital marks (Closing.jsx, Careers.jsx). Both are explicitly documented as neutral placeholders reconstructed from measured geometry, not Mirai Labs' real brand artwork.",
+      "realFiles": [],
+      "generationGuidance": "may-generate-new",
+      "generationNote": "A generator MAY produce a new abstract/geometric mark or a new text-set wordmark in this style.",
+      "licensingGuidance": "MUST NOT attempt to reproduce, approximate, or reverse-engineer Mirai Labs' real logo/wordmark/brand identity. Any generated mark must remain visibly generic/abstract, never a plausible stand-in for the real company's actual brand art.",
+      "citation": "README.md 'Where this differs from the original'; PROCESS.md §7, §10"
+    },
+    "real-investor-logo": {
+      "description": "The 8 investor/team backer logos on /about-us: Y Combinator, Stripe, Uncork Capital, MLX, and four named individuals (Ben, Gokul, Marcin, Mati).",
+      "realFiles": ["public/about-us/logo-yc.svg", "public/about-us/logo-stripe.svg", "public/about-us/logo-uncork.svg", "public/about-us/logo-mlx.svg", "public/about-us/logo-ben.svg", "public/about-us/logo-gokul.svg", "public/about-us/logo-marcin.svg", "public/about-us/logo-mati.svg"],
+      "generationGuidance": "must-reuse-exact",
+      "generationNote": "A generator MUST reference one of the real files above by exact path, never synthesize a new mark for a named real investor or person.",
+      "licensingGuidance": "MUST NOT fabricate a logo for a real company or a real named individual not already in this list. These are real third-party/personal marks reproduced under the original site's own display; a generator adding a NEW backer must be given a real, licensed asset file — it must never invent one.",
+      "citation": "src/pages/AboutUs.jsx BACKERS array + public/about-us/*.svg"
+    },
+    "third-party-company-logo": {
+      "description": "Real AI model/company marks used as provenance icons: LiquidAI, Llama (Meta), Qwen (Alibaba).",
+      "realFiles": ["public/shared/icons/liquidai.svg", "public/shared/icons/llama.svg", "public/shared/icons/qwen.svg"],
+      "generationGuidance": "must-reuse-exact",
+      "generationNote": "A generator MUST reference one of the real files above; never redraw or approximate a real company's mark.",
+      "licensingGuidance": "MUST NOT fabricate a new third-party company logo. If a new model family needs a provenance mark, that requires a real licensed asset supplied by a human, not a generated approximation of a real company's trademark.",
+      "citation": "src/pages/LocalModels.jsx FAMILIES, src/components/Shared.jsx MODELS"
+    },
+    "language-icon": {
+      "description": "Generic programming-language marks (Kotlin, Python, Rust, Swift, TypeScript) used in the SDK install matrix.",
+      "realFiles": ["public/inference-runtime/langs/kotlin.svg", "public/inference-runtime/langs/python.svg", "public/inference-runtime/langs/rust.svg", "public/inference-runtime/langs/swift.svg", "public/inference-runtime/langs/typescript.svg"],
+      "generationGuidance": "must-reuse-exact",
+      "generationNote": "A generator MUST reference one of the real files above for an existing supported language.",
+      "licensingGuidance": "Lower compliance risk than a company's own brand (these are widely-used public language marks), but still real trademarked identities — MUST NOT fabricate a mark for a language not in this list; flag it for a human to supply the real asset instead.",
+      "citation": "src/pages/InferenceRuntime.jsx LANG_ICON"
+    },
+    "photographic-backdrop": {
+      "description": "Full-bleed sunset-themed cover photography used as a backdrop behind framed terminal/browser compositions and the chat-for-mac hero.",
+      "realFiles": ["public/shared/sunset-1024.webp", "public/shared/sunset-1920.webp", "public/shared/sunset-512.webp", "public/shared/sunset-sun-1920.webp", "public/shared/sunset-wide-1920.webp", "public/chat-for-mac/hero-bg.png"],
+      "generationGuidance": "may-generate-new",
+      "generationNote": "A generator MAY produce new generic atmospheric/landscape backdrop photography in a similar tone, or reuse one of the real files above.",
+      "licensingGuidance": "No real-brand risk (generic landscape photography), but MUST NOT depict a real identifiable person, real Mirai Labs office/product photography, or any real trademarked scene.",
+      "citation": "src/components/Shared.jsx SunsetPlate, src/pages/ChatForMac.jsx"
+    },
+    "product-screenshot": {
+      "description": "The macOS app screenshot used on /chat-for-mac (a single real file reused for both the desktop and mobile framed views — the two upstream names resolve to the same bytes, per the code comment).",
+      "realFiles": ["public/chat-for-mac/mockup-mobile-2.webp"],
+      "generationGuidance": "must-reuse-exact",
+      "generationNote": "A generator MUST reference the real file; a product screenshot is not something to hallucinate.",
+      "licensingGuidance": "MUST NOT fabricate a new screenshot implying real, unreleased product UI. If the real app's UI changes, a human must supply a new real screenshot.",
+      "citation": "src/pages/ChatForMac.jsx AppView + code comment on mockup-window/mockup-mobile dedup"
+    },
+    "decorative-icon": {
+      "description": "Generic decorative pictograms with no real-brand meaning: conversion/optimization pipeline icons, model-family engine icons, persona icons ('model companies', 'researchers', 'makers'), the app-icon glyph.",
+      "realFiles": ["public/conversion-optimization-toolkit/icons/draft-model.svg", "public/conversion-optimization-toolkit/icons/quantization.svg", "public/conversion-optimization-toolkit/icons/validation.svg", "public/images/models/engine-mlx.svg", "public/images/models/engine-uzu.svg", "public/images/models/icon-apple.svg", "public/shared/icons/persona-makers.svg", "public/shared/icons/persona-model-companies.svg", "public/shared/icons/persona-researchers.svg", "public/chat-for-mac/app-icon.png"],
+      "generationGuidance": "may-generate-new",
+      "generationNote": "A generator MAY create new pictograms matching the existing line-icon style for a new concept.",
+      "licensingGuidance": "Low risk (generic pictograms), but MUST NOT reproduce Apple's own trademarked icon marks beyond the existing generic Apple-Silicon reference already in use, and must stay in the established minimal-line style."
+    },
+    "blog-cover-image": {
+      "description": "Blog post cover images.",
+      "realFiles": ["public/blog/quantization.webp", "public/blog/sparse-buffers-for-kv-cache.webp", "public/blog/speculative-decoding-in-uzu.webp", "public/blog/tackling-random-foreign-characters.webp", "public/blog/trees-from-marginals.webp"],
+      "generationGuidance": "may-generate-new",
+      "generationNote": "A generator MAY produce new generic abstract cover art for a new post.",
+      "licensingGuidance": "MUST NOT fabricate imagery implying a real, specific Mirai Labs research result or real screenshot of proprietary internal tooling not actually published.",
+      "citation": "src/pages/Blog.jsx POSTS"
+    },
+    "generic-avatar-placeholder": {
+      "description": "The generic person-silhouette avatar used on the about-us team cards, explicitly standing in for withheld real photographs.",
+      "realFiles": [],
+      "generationGuidance": "may-generate-new",
+      "generationNote": "A generator MAY vary the silhouette style, as long as it remains obviously generic/anonymous.",
+      "licensingGuidance": "MUST NOT generate or imply a photorealistic portrait of any real Mirai Labs founder or employee. This role exists specifically because real team photography is intentionally withheld in this clone (src/pages/AboutUs.jsx comment: 'This clone keeps the card layout and leaves the people anonymous').",
+      "citation": "src/pages/AboutUs.jsx team card avatar"
+    },
+    "favicon-app-icon": {
+      "description": "Favicon and app-icon assets tightly coupled to brand identity.",
+      "realFiles": ["public/favicon.ico", "public/icon-dark.png", "public/icon-light.png", "public/apple-touch-icon.png", "public/hf-logo.svg"],
+      "generationGuidance": "must-reuse-exact",
+      "generationNote": "A generator MUST reference the real files; these are not appropriate targets for on-the-fly generation.",
+      "licensingGuidance": "hf-logo.svg is Hugging Face's real mark, reused as a footer link icon (must-reuse-exact, must-not-fabricate a substitute). The icon-dark/icon-light/favicon/apple-touch-icon set follows the same neutral-placeholder rule as brand-mark-placeholder — they are not Mirai Labs' real icon artwork.",
+      "citation": "public/favicon.ico etc., src/components/Footer.jsx hf-logo usage"
+    }
+  }
+}

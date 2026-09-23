@@ -1,0 +1,45 @@
+{
+  "id": "section.contact-frame",
+  "layer": "section",
+  "purpose": "Framed contact panel: desktop 1200x696 Frame with a centered 600x482 mail-style card; mobile a bare card. Fields: name, company, email (required), interest (optional textarea). Local no-op submit.",
+  "measuredFrom": "src/pages/Interested.jsx:14-49, 61-79",
+  "content": {
+    "toAddress": {
+      "type": "string",
+      "required": true
+    },
+    "fields": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 4,
+      "required": true
+    },
+    "submitLabel": {
+      "type": "string",
+      "maxWords": 2,
+      "required": true
+    }
+  },
+  "constraints": {
+    "onePerPage": true,
+    "interestedRouteOnly": true,
+    "mustBeLastBeforeFooter": true
+  },
+  "motion": {
+    "pattern": "scroll-reveal",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": false,
+    "breakpoints": {
+      "nav-810": {
+        "layoutChange": "image-swap",
+        "description": "A distinct mobile chat mock (390x560, always visible below 810px) is swapped for a separate fixed 1200x696 desktop mock (hidden below 810px, block at 810px) \u2014 two different rendered elements, not a CSS resize of one.",
+        "citation": "src/pages/Interested.jsx:80,91"
+      }
+    }
+  },
+  "notes": [
+    "The form's onSubmit is a local no-op (e.preventDefault(); setSent(true)) \u2014 verified src/pages/Interested.jsx:18-20. It does not submit anywhere real. A generated PageSpec for this section must not claim or imply a real backend submission, and any generated copy must preserve the 'This clone does not submit anywhere' disclosure or an equivalent true statement if adapted."
+  ]
+}

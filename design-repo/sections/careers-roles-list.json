@@ -1,0 +1,45 @@
+{
+  "id": "section.careers-roles-list",
+  "layer": "section",
+  "purpose": "Open-positions list: bordered beige rows, title + meta line, linking to the contact page.",
+  "measuredFrom": "src/pages/Careers.jsx:6-10, 49-64",
+  "content": {
+    "heading": {
+      "type": "string",
+      "maxWords": 3,
+      "required": true
+    },
+    "roles": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 8,
+      "required": true,
+      "itemFields": {
+        "title": {
+          "maxWords": 6
+        },
+        "meta": {
+          "maxWords": 12
+        }
+      }
+    }
+  },
+  "constraints": {
+    "onePerPage": true,
+    "careersRouteOnly": true
+  },
+  "motion": {
+    "pattern": "scroll-reveal",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": false,
+    "breakpoints": {
+      "lg-1024": {
+        "layoutChange": "spacing-shift",
+        "description": "Top margin above the role list grows from 32px (mt-8) to 40px (lg:mt-10).",
+        "citation": "src/pages/Careers.jsx:61"
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "id": "primitive.avatar-generic",
+  "layer": "primitive",
+  "purpose": "Generic circular placeholder avatar (a person-silhouette SVG on a tinted ink background), used in place of real team photos.",
+  "citation": "src/pages/AboutUs.jsx team card avatar (size-16, bg-ink/10)",
+  "assetRoleNote": "This primitive exists specifically BECAUSE real portraits are withheld \u2014 see sections/about-team-cards.json assetRole guidance.",
+  "props": {}
+}

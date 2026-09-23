@@ -1,0 +1,41 @@
+{
+  "id": "section.cloud-vs-device",
+  "layer": "section",
+  "purpose": "Short comparison band: cloud vs on-device.",
+  "measuredFrom": "src/components/CloudVsDevice.jsx:1-41",
+  "content": {
+    "heading": {
+      "type": "string",
+      "maxWords": 10,
+      "required": true
+    },
+    "body": {
+      "type": "string",
+      "maxWords": 30,
+      "required": false
+    }
+  },
+  "constraints": {
+    "onePerPage": true,
+    "homeRouteOnly": true
+  },
+  "motion": {
+    "pattern": "scroll-reveal",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": false,
+    "breakpoints": {
+      "md-768": {
+        "layoutChange": "grid-column-count-change",
+        "description": "The comparison block stacks in a single column below 768px and becomes a 2-column grid at md.",
+        "citation": "src/components/CloudVsDevice.jsx:13"
+      },
+      "lg-1024": {
+        "layoutChange": "spacing-shift",
+        "description": "Comparison card padding/gap increases from 12px (md:p-3) to 20px (lg:p-5).",
+        "citation": "src/components/CloudVsDevice.jsx:21"
+      }
+    }
+  }
+}

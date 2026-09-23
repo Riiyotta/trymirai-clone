@@ -1,0 +1,53 @@
+{
+  "id": "section.perfect-for",
+  "layer": "section",
+  "purpose": "Three-up 'Perfect for:' persona cards.",
+  "measuredFrom": "src/components/Shared.jsx:167-193 (PerfectFor)",
+  "content": {
+    "title": {
+      "type": "string",
+      "maxWords": 12,
+      "required": true
+    },
+    "cards": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "required": true,
+      "itemFields": {
+        "heading": {
+          "maxWords": 4
+        },
+        "body": {
+          "maxWords": 30
+        }
+      }
+    }
+  },
+  "constraints": {
+    "onePerPage": true,
+    "noConsecutive": true
+  },
+  "motion": {
+    "pattern": "scroll-reveal",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": false,
+    "breakpoints": {
+      "md-768": {
+        "layoutChange": "spacing-shift",
+        "description": "Card padding grows from 20px (p-5) to 24px (md:p-6) and card heading top-margin from 24px to 40px.",
+        "citation": "src/components/Shared.jsx:155,157"
+      },
+      "nav-810": {
+        "layoutChange": "grid-column-count-change",
+        "description": "Card grid goes from a single stacked column to a 3-column grid.",
+        "citation": "src/components/Shared.jsx:153"
+      }
+    }
+  },
+  "assetRoles": {
+    "cardIcon": "decorative-icon"
+  }
+}

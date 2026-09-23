@@ -1,0 +1,52 @@
+{
+  "id": "section.blog-post-list",
+  "layer": "section",
+  "purpose": "Vertical list of 992x400 post cards, cover image left, tag/title/blurb right, each revealed on scroll.",
+  "measuredFrom": "src/pages/Blog.jsx:8-17, 28-49",
+  "content": {
+    "posts": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 20,
+      "required": true,
+      "itemFields": {
+        "tag": {
+          "maxWords": 2
+        },
+        "title": {
+          "maxWords": 14
+        },
+        "blurb": {
+          "maxWords": 24
+        }
+      }
+    }
+  },
+  "constraints": {
+    "onePerPage": true,
+    "blogIndexRouteOnly": true,
+    "mustBeLastBeforeFooter": true
+  },
+  "motion": {
+    "pattern": "scroll-reveal",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": false,
+    "breakpoints": {
+      "md-768": {
+        "layoutChange": "spacing-shift",
+        "description": "List top margin grows from the base value to 68px.",
+        "citation": "src/pages/Blog.jsx:33"
+      },
+      "nav-810": {
+        "layoutChange": "column-to-row",
+        "description": "Each post card's image+text stacks vertically below 810px; at 810px it becomes a fixed-height (400px) horizontal row with a fixed 436px-wide thumbnail.",
+        "citation": "src/pages/Blog.jsx:39,46"
+      }
+    }
+  },
+  "assetRoles": {
+    "cover": "blog-cover-image"
+  }
+}

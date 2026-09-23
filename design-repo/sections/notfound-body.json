@@ -1,0 +1,38 @@
+{
+  "id": "section.notfound-body",
+  "layer": "section",
+  "purpose": "Centered 404 body: h1, supporting line, 'Back home' CTA.",
+  "measuredFrom": "src/pages/NotFound.jsx:1-15",
+  "content": {
+    "heading": {
+      "type": "string",
+      "maxWords": 4,
+      "required": true
+    },
+    "body": {
+      "type": "string",
+      "maxWords": 16,
+      "required": true
+    },
+    "ctaLabel": {
+      "type": "string",
+      "maxWords": 3,
+      "required": true
+    }
+  },
+  "constraints": {
+    "mustBeFirst": true,
+    "onePerPage": true,
+    "notFoundRouteOnly": true,
+    "mustBeLastBeforeFooter": true
+  },
+  "motion": {
+    "pattern": "scroll-reveal",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": true,
+    "breakpoints": {},
+    "citation": "src/pages/NotFound.jsx:1-15 \u2014 no min-[Npx]:/md:/lg: class present anywhere in this component; the 404 message layout is fixed at every viewport width."
+  }
+}

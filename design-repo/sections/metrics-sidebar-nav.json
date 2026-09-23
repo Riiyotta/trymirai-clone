@@ -1,0 +1,32 @@
+{
+  "id": "section.metrics-sidebar-nav",
+  "layer": "section",
+  "purpose": "Sticky left-hand in-page nav (200px, desktop only) linking to the 5 metrics sections by anchor.",
+  "measuredFrom": "src/pages/Metrics.jsx:100, 127-141",
+  "content": {
+    "items": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "required": true
+    }
+  },
+  "constraints": {
+    "onePerPage": true,
+    "metricsRouteOnly": true
+  },
+  "motion": {
+    "pattern": "hover-only",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": false,
+    "breakpoints": {
+      "product-1200": {
+        "layoutChange": "hidden-below-breakpoint",
+        "description": "The 200px-wide sidebar nav is hidden entirely below 1200px and shown (block) at 1200px; no in-flow mobile replacement is rendered by this component.",
+        "citation": "src/pages/Metrics.jsx:124"
+      }
+    }
+  }
+}

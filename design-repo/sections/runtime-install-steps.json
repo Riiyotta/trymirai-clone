@@ -1,0 +1,56 @@
+{
+  "id": "section.runtime-install-steps",
+  "layer": "section",
+  "purpose": "3-step framework picker + install command + syntax-highlighted code sample, shown either standalone (mobile) or inside a browser-chrome mock window (desktop).",
+  "measuredFrom": "src/pages/InferenceRuntime.jsx:157-207, 295-352",
+  "content": {
+    "heading": {
+      "type": "string",
+      "maxWords": 8,
+      "required": true
+    },
+    "frameworks": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 5,
+      "required": true
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "required": true,
+      "itemFields": {
+        "label": {
+          "maxWords": 12
+        }
+      }
+    }
+  },
+  "constraints": {
+    "onePerPage": true,
+    "runtimeRouteOnly": true
+  },
+  "motion": {
+    "pattern": "scroll-reveal",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": false,
+    "breakpoints": {
+      "nav-810": {
+        "layoutChange": "column-to-row",
+        "description": "Each install-step row stacks label/detail/code vertically below 810px; at 810px it becomes a 3-column grid (228px/240px/1fr) and a hidden column-header row is shown.",
+        "citation": "src/pages/InferenceRuntime.jsx:313,317,322"
+      },
+      "product-1200": {
+        "layoutChange": "grid-column-count-change",
+        "description": "The panel switches from a single column to a 2-column grid.",
+        "citation": "src/pages/InferenceRuntime.jsx:352"
+      }
+    }
+  },
+  "assetRoles": {
+    "languageMark": "language-icon"
+  }
+}

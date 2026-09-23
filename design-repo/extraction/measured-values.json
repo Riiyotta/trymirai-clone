@@ -1,0 +1,73 @@
+{
+  "$description": "Citation ledger: which real file/line-range backs each major decision in this design-repo. Every citation here points at the sibling source tree (src/, public/, reference/, README.md, PROCESS.md) that sits NEXT TO design-repo/ during the build — this file is NOT listed in registry.manifest.json's entryPoints (which must only list files inside design-repo/ itself), and every consumer of this ledger (extraction/verify_all.py) degrades gracefully — warns, does not fail — when no sibling source tree is present, e.g. after this folder is zipped and handed to someone standalone.",
+  "sourceProjectSnapshot": {
+    "note": "This is a snapshot of the source project at build time, not a living mirror. If the source project changes (a dependency bump, a route added/removed), re-diff these claims against current package.json/src/App.jsx before trusting them.",
+    "packageName": "trymirai-clone",
+    "react": "18.3.1",
+    "reactRouterDom": "6.30.6",
+    "vite": "5.4.11",
+    "tailwindcss": "3.4.17",
+    "citedFrom": "package.json"
+  },
+  "routeInventory": {
+    "citedFrom": "src/App.jsx:1-37",
+    "realRouteCount": 13,
+    "distinctPageComponents": 12,
+    "catchAll": "* -> NotFound.jsx (14th Route entry, not counted among the 13 real routes)",
+    "note": "All 13 real routes + the catch-all are reachable via src/components/Navbar.jsx and src/components/Footer.jsx link sets — no dead/orphaned routes found."
+  },
+  "designToken evidence": {
+    "colors": "tailwind.config.js:6-45 — cross-checked against class usage in src/**/*.jsx",
+    "typography": "src/index.css:1-131 — @font-face declarations + .type-* utility classes",
+    "spacing": "tailwind.config.js:50 (maxWidth.shell), src/index.css:39-42 (.shell), src/pages/Home.jsx:12-14 (96px Gap rail)",
+    "motion": "src/components/useInView.jsx, src/index.css:44-84, PROCESS.md §9 (motion-capture pass)"
+  },
+  "pageShapeClassification": {
+    "method": "Read every file in src/pages/*.jsx and src/App.jsx directly; grouped by real, observed JSX structure (section component sequence), not by route name or assumption.",
+    "findings": [
+      "Home.jsx is a unique 8-section stack (Hero/AppGrid/Speed/ExecutionStack/CloudVsDevice/CoDesign/FullStack/Closing), confirmed against src/pages/Home.jsx:1-38.",
+      "ConversionToolkit.jsx and InferenceRuntime.jsx both import PerfectFor/Faq/BenchStrip/ModelCards/ClosingBand from src/components/Shared.jsx and share a hero pattern, but their SECTION ORDER genuinely diverges (toolkit: hero, convert-cards, pipeline, bench-strip, model-cards, perfect-for, faq, closing-band; runtime: hero, perfect-for, bench-strip, install-steps, install-matrix, features, model-cards, faq, closing-band) — kept as two separate templates rather than forced into one shared shape, per real node-sequence evidence in src/pages/ConversionToolkit.jsx and src/pages/InferenceRuntime.jsx.",
+      "ChatForMac.jsx and Interested.jsx both import Frame from src/components/Shared.jsx, but their page structure differs substantially (marquee hero + framed screenshot vs. page-header + framed contact form) — NOT grouped into one template.",
+      "LocalModels.jsx and Metrics.jsx are both bespoke, data-driven, interactive pages with no shared section components — kept as two separate templates.",
+      "PrivacyPolicy and TermsOfUse (src/pages/Legal.jsx) share the exact same LegalPage() component/shape, parameterized only by title/description/kind — genuinely one template, two routes.",
+      "BlogIndex and BlogPost (src/pages/Blog.jsx) are two clearly different shapes (list vs. article) despite sharing one file — kept as two templates."
+    ]
+  },
+  "knownFidelityGaps": {
+    "citedFrom": "PROCESS.md §11 'The rest of the site', README.md 'Page fidelity at 1440px'",
+    "note": "This design-repo describes what is ACTUALLY BUILT in this repo, not the live trymirai.com site. PROCESS.md's own fidelity table is the authoritative source for where this clone runs shorter than the original.",
+    "gaps": [
+      {"route": "/inference-runtime", "originalFirstBuildFidelity": "60%", "detail": "8 of the original live site's 10 sections are built; the template in templates/templates.json reflects only the 9 real sections actually present in src/pages/InferenceRuntime.jsx (hero + 8 body/closing sections)."},
+      {"route": "/conversion-optimization-toolkit", "originalFirstBuildFidelity": "62%", "detail": "Similarly condensed relative to the live original; template reflects the real, built section list."},
+      {"route": "/about-us", "originalFirstBuildFidelity": "48% then fixed to ~73-79%", "detail": "Layout bug (2-col grid vs. real 600px single-column article) was fixed; body copy remains thinner than the original per README.md."},
+      {"route": "/local-models", "originalFirstBuildFidelity": "135% (too tall) then fixed to 96.2%", "detail": "Overbuilt structure (stacked cards) was corrected to match the real measured family/checkpoint/variant hierarchy."}
+    ]
+  },
+  "assetInventory": {
+    "citedFrom": "public/ directory listing (~40 files), cross-referenced against every <img>/background usage in src/**/*.jsx",
+    "realCompanyCaveat": "This project reference-clones a real, live company (trymirai.com / Mirai Labs) — see README.md 'Content, branding and design are Mirai Labs'. This is a local reference build.' and PROCESS.md §7/§10. The wordmark and orbital marks are explicitly documented as neutral placeholders, not real brand art. See tokens/llm/asset-roles.json for the full per-asset licensing/generation guidance this fact drives."
+  },
+  "responsiveFieldEvidence": {
+    "citedFrom": "tokens/00-foundation/breakpoint.json (closed real breakpoint set), grep -o \"min-\\[[0-9]*px\\]|md:|lg:|sm:|hidden\" across src/pages/*.jsx and src/components/*.jsx per section's own measuredFrom range",
+    "method": "For every section in sections/*.json, the exact JSX range named in its own measuredFrom citation was grepped for Tailwind responsive variants (min-[Npx]:, md:, lg:, sm:, hidden/block toggles). Each real class found was converted into one structured sections/*.json `responsive.breakpoints.<breakpoint-token>` entry (layoutChange + description + its own file:line citation, independently re-checkable against src/). Sections where the cited range contains zero responsive classes were marked `noResponsiveChange: true` with a citation naming the exact grepped range as evidence of absence, rather than left with no field at all.",
+    "breakpointKeysUsed": ["sm-640", "md-768", "nav-810", "lg-1024", "product-1200"],
+    "breakpointKeyNotUsed": "shell-1240 (defined in tokens/00-foundation/breakpoint.json as the shell padding cutover, but no section content/layout change — only the shell container's own padding — was found keyed to it in any section's measuredFrom range)",
+    "sectionsWithNoResponsiveChange": [
+      "section.metrics-chart-panel",
+      "section.metrics-how-we-measure",
+      "section.metrics-quality-scatter",
+      "section.notfound-body",
+      "section.page-header-simple",
+      "section.runtime-features",
+      "section.toolkit-pipeline"
+    ],
+    "note": "This is the machine-readable field MASTER-GUIDE.md §3.7 calls out as missing: prior to this pass, responsive behavior was only asserted in section `purpose`/notes prose. It is now schema-enforced (schema/pagespec.schema.json definitions.responsive, closed to these breakpoint keys and a closed layoutChange enum) and cross-checked per-instance against each section's own contract by schema/semantic_validate.py's RESPONSIVE_CONTRACT_MISMATCH rule."
+  },
+  "excludedSources": {
+    "playwrightMcpDump": ".playwright-mcp/ (262 files) — pure scratch QA console-log dumps from prior sessions, not design specs; explicitly NOT cited anywhere in this design-repo.",
+    "distFolder": "dist/ — a build artifact, not a source of design truth; not cited."
+  },
+  "degradeGracefully": {
+    "note": "extraction/verify_all.py's citation-format check validates that every citation string in THIS file follows the 'path:line[-line]' or 'path' convention, and — only when the sibling source tree (../src, ../public, ../README.md, ../PROCESS.md relative to design-repo/) is actually present on disk — resolves each citation's line range against the real file and fails on an out-of-range citation. When no sibling source tree is present (e.g. this folder was unzipped standalone), it prints a warning and continues rather than failing the run."
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "$description": "Semantic typography roles resolving to the type scale in tokens/00-foundation/typography.json.",
+  "roles": {
+    "heading.hero.home": { "foundation": "type-h1" },
+    "heading.hero.page": { "foundation": "type-h1-page" },
+    "heading.section": { "foundation": "type-section-title" },
+    "heading.product-hero": { "foundation": "product-hero-title" },
+    "heading.card": { "foundation": "type-card-title" },
+    "heading.routing": { "foundation": "type-routing-title" },
+    "heading.job-section": { "foundation": "type-job-section" },
+    "heading.careers-close": { "foundation": "type-careers-close" },
+    "body.large": { "foundation": "type-body-lg" },
+    "body.default": { "foundation": "type-body" },
+    "caption": { "foundation": "type-caption" },
+    "eyebrow": { "foundation": "type-eyebrow" },
+    "product-body": { "foundation": "type-pbody" },
+    "nav": { "foundation": "nav-link" }
+  }
+}

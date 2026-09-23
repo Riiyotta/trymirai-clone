@@ -1,0 +1,26 @@
+{
+  "id": "section.page-header-simple",
+  "layer": "section",
+  "purpose": "Minimal page-top h1, no subtitle, left/top-aligned in the shell padding band. Reused wherever a page opens with a bare heading and no supporting copy.",
+  "measuredFrom": "src/pages/Interested.jsx:57-59, src/pages/LocalModels.jsx:143-145",
+  "content": {
+    "heading": {
+      "type": "string",
+      "maxWords": 12,
+      "required": true
+    }
+  },
+  "constraints": {
+    "mustBeFirst": true,
+    "onePerPage": true
+  },
+  "motion": {
+    "pattern": "scroll-reveal",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": true,
+    "breakpoints": {},
+    "citation": "src/pages/Interested.jsx:57-59 and src/pages/LocalModels.jsx:143-145 \u2014 no min-[Npx]:/md:/lg: class present in either cited range; this header renders identically at every viewport width."
+  }
+}

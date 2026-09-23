@@ -1,0 +1,14 @@
+{
+  "id": "primitive.link",
+  "layer": "primitive",
+  "purpose": "Internal/external link primitive. Internal paths (starting with '/') render a router Link; mailto:/tel:/external URLs render a plain anchor, opening external http(s) links in a new tab with rel=noreferrer.",
+  "citation": "src/components/A.jsx:1-11",
+  "props": {
+    "href": {
+      "type": "string"
+    },
+    "children": {
+      "type": "string"
+    }
+  }
+}

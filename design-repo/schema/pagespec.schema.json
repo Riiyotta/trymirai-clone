@@ -1,0 +1,3773 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://design-repo.local/schema/pagespec.schema.json",
+  "title": "Mirai Labs clone \u2014 PageSpec",
+  "description": "A generated page composition: a declared template plus an ordered list of section nodes, each carrying its own content + motion (+ assetRefs where applicable). Word-count (maxWords) budgets and template/node cross-referencing are enforced in schema/semantic_validate.py, not here (see tokens/llm/token-policy.json).",
+  "type": "object",
+  "properties": {
+    "pageSpecId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "pageSpecVersion": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "route": {
+      "type": "string",
+      "minLength": 1
+    },
+    "template": {
+      "enum": [
+        "template.about",
+        "template.blog-index",
+        "template.blog-post",
+        "template.careers",
+        "template.chat-mac",
+        "template.contact",
+        "template.home",
+        "template.legal",
+        "template.local-models",
+        "template.metrics",
+        "template.not-found",
+        "template.product-runtime",
+        "template.product-toolkit"
+      ]
+    },
+    "meta": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 70
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        }
+      },
+      "required": [
+        "title",
+        "description"
+      ],
+      "additionalProperties": false
+    },
+    "nodes": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.about-backer-grid"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "heading": {
+                    "type": "string"
+                  },
+                  "backers": {
+                    "type": "array",
+                    "minItems": 4,
+                    "maxItems": 8,
+                    "items": {
+                      "type": [
+                        "object",
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "heading",
+                  "backers"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              },
+              "assetRefs": {
+                "type": "object",
+                "properties": {
+                  "logo": {
+                    "type": "object",
+                    "properties": {
+                      "assetRole": {
+                        "enum": [
+                          "brand-mark-placeholder",
+                          "real-investor-logo",
+                          "third-party-company-logo",
+                          "language-icon",
+                          "photographic-backdrop",
+                          "product-screenshot",
+                          "decorative-icon",
+                          "blog-cover-image",
+                          "generic-avatar-placeholder",
+                          "favicon-app-icon"
+                        ]
+                      },
+                      "path": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "assetRole",
+                      "path"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.about-hero"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "headline": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "headline"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.about-prose-block"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "heading": {
+                    "type": "string"
+                  },
+                  "paragraphs": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 3,
+                    "items": {
+                      "type": [
+                        "object",
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "heading",
+                  "paragraphs"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.about-team-cards"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "members": {
+                    "type": "array",
+                    "minItems": 2,
+                    "maxItems": 2,
+                    "items": {
+                      "type": [
+                        "object",
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "members"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              },
+              "assetRefs": {
+                "type": "object",
+                "properties": {
+                  "avatar": {
+                    "type": "object",
+                    "properties": {
+                      "assetRole": {
+                        "enum": [
+                          "brand-mark-placeholder",
+                          "real-investor-logo",
+                          "third-party-company-logo",
+                          "language-icon",
+                          "photographic-backdrop",
+                          "product-screenshot",
+                          "decorative-icon",
+                          "blog-cover-image",
+                          "generic-avatar-placeholder",
+                          "favicon-app-icon"
+                        ]
+                      },
+                      "path": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "assetRole",
+                      "path"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.appgrid"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "heading": {
+                    "type": "string"
+                  },
+                  "body": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "heading"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.bench-strip"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "modelLabel": {
+                    "type": "string"
+                  },
+                  "deviceLabel": {
+                    "type": "string"
+                  },
+                  "panels": {
+                    "type": "array",
+                    "minItems": 3,
+                    "maxItems": 3,
+                    "items": {
+                      "type": [
+                        "object",
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "modelLabel",
+                  "deviceLabel",
+                  "panels"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.blog-header"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "heading": {
+                    "type": "string"
+                  },
+                  "subhead": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "heading",
+                  "subhead"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.blog-post-article"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "tag": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "blurb": {
+                    "type": "string"
+                  },
+                  "disclosure": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "tag",
+                  "title",
+                  "blurb",
+                  "disclosure"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              },
+              "assetRefs": {
+                "type": "object",
+                "properties": {
+                  "cover": {
+                    "type": "object",
+                    "properties": {
+                      "assetRole": {
+                        "enum": [
+                          "brand-mark-placeholder",
+                          "real-investor-logo",
+                          "third-party-company-logo",
+                          "language-icon",
+                          "photographic-backdrop",
+                          "product-screenshot",
+                          "decorative-icon",
+                          "blog-cover-image",
+                          "generic-avatar-placeholder",
+                          "favicon-app-icon"
+                        ]
+                      },
+                      "path": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "assetRole",
+                      "path"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.blog-post-list"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "posts": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 20,
+                    "items": {
+                      "type": [
+                        "object",
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "posts"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              },
+              "assetRefs": {
+                "type": "object",
+                "properties": {
+                  "cover": {
+                    "type": "object",
+                    "properties": {
+                      "assetRole": {
+                        "enum": [
+                          "brand-mark-placeholder",
+                          "real-investor-logo",
+                          "third-party-company-logo",
+                          "language-icon",
+                          "photographic-backdrop",
+                          "product-screenshot",
+                          "decorative-icon",
+                          "blog-cover-image",
+                          "generic-avatar-placeholder",
+                          "favicon-app-icon"
+                        ]
+                      },
+                      "path": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "assetRole",
+                      "path"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.careers-about-why"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "aboutHeading": {
+                    "type": "string"
+                  },
+                  "aboutParagraphs": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 2,
+                    "items": {
+                      "type": [
+                        "object",
+                        "string"
+                      ]
+                    }
+                  },
+                  "whyHeading": {
+                    "type": "string"
+                  },
+                  "whyParagraphs": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 2,
+                    "items": {
+                      "type": [
+                        "object",
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "aboutHeading",
+                  "aboutParagraphs",
+                  "whyHeading",
+                  "whyParagraphs"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.careers-closing-cta"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "headline": {
+                    "type": "string"
+                  },
+                  "body": {
+                    "type": "string"
+                  },
+                  "ctaLabel": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "headline",
+                  "body",
+                  "ctaLabel"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              },
+              "assetRefs": {
+                "type": "object",
+                "properties": {
+                  "mark": {
+                    "type": "object",
+                    "properties": {
+                      "assetRole": {
+                        "enum": [
+                          "brand-mark-placeholder",
+                          "real-investor-logo",
+                          "third-party-company-logo",
+                          "language-icon",
+                          "photographic-backdrop",
+                          "product-screenshot",
+                          "decorative-icon",
+                          "blog-cover-image",
+                          "generic-avatar-placeholder",
+                          "favicon-app-icon"
+                        ]
+                      },
+                      "path": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "assetRole",
+                      "path"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.careers-roles-list"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "heading": {
+                    "type": "string"
+                  },
+                  "roles": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 8,
+                    "items": {
+                      "type": [
+                        "object",
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "heading",
+                  "roles"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.closing-band"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "blurb": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "title",
+                  "blurb"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              },
+              "assetRefs": {
+                "type": "object",
+                "properties": {
+                  "backdrop": {
+                    "type": "object",
+                    "properties": {
+                      "assetRole": {
+                        "enum": [
+                          "brand-mark-placeholder",
+                          "real-investor-logo",
+                          "third-party-company-logo",
+                          "language-icon",
+                          "photographic-backdrop",
+                          "product-screenshot",
+                          "decorative-icon",
+                          "blog-cover-image",
+                          "generic-avatar-placeholder",
+                          "favicon-app-icon"
+                        ]
+                      },
+                      "path": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "assetRole",
+                      "path"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.closing-home"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "headline": {
+                    "type": "string"
+                  },
+                  "body": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "headline",
+                  "body"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              },
+              "assetRefs": {
+                "type": "object",
+                "properties": {
+                  "mark": {
+                    "type": "object",
+                    "properties": {
+                      "assetRole": {
+                        "enum": [
+                          "brand-mark-placeholder",
+                          "real-investor-logo",
+                          "third-party-company-logo",
+                          "language-icon",
+                          "photographic-backdrop",
+                          "product-screenshot",
+                          "decorative-icon",
+                          "blog-cover-image",
+                          "generic-avatar-placeholder",
+                          "favicon-app-icon"
+                        ]
+                      },
+                      "path": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "assetRole",
+                      "path"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.cloud-vs-device"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "heading": {
+                    "type": "string"
+                  },
+                  "body": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "heading"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.co-design"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "heading": {
+                    "type": "string"
+                  },
+                  "body": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "heading"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.contact-frame"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "toAddress": {
+                    "type": "string"
+                  },
+                  "fields": {
+                    "type": "array",
+                    "minItems": 3,
+                    "maxItems": 4,
+                    "items": {
+                      "type": [
+                        "object",
+                        "string"
+                      ]
+                    }
+                  },
+                  "submitLabel": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "toAddress",
+                  "fields",
+                  "submitLabel"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.execution-stack"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "heading": {
+                    "type": "string"
+                  },
+                  "body": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "heading"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.faq"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "items": {
+                    "type": "array",
+                    "minItems": 4,
+                    "maxItems": 8,
+                    "items": {
+                      "type": [
+                        "object",
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "title",
+                  "items"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.framed-screenshot"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "alt": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "alt"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              },
+              "assetRefs": {
+                "type": "object",
+                "properties": {
+                  "screenshot": {
+                    "type": "object",
+                    "properties": {
+                      "assetRole": {
+                        "enum": [
+                          "brand-mark-placeholder",
+                          "real-investor-logo",
+                          "third-party-company-logo",
+                          "language-icon",
+                          "photographic-backdrop",
+                          "product-screenshot",
+                          "decorative-icon",
+                          "blog-cover-image",
+                          "generic-avatar-placeholder",
+                          "favicon-app-icon"
+                        ]
+                      },
+                      "path": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "assetRole",
+                      "path"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.full-stack"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "heading": {
+                    "type": "string"
+                  },
+                  "body": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "heading"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.hero-chat-mac"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "headline": {
+                    "type": "string"
+                  },
+                  "body": {
+                    "type": "string"
+                  },
+                  "families": {
+                    "type": "array",
+                    "maxItems": 6,
+                    "items": {
+                      "type": [
+                        "object",
+                        "string"
+                      ]
+                    }
+                  },
+                  "downloadLabel": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "headline",
+                  "body",
+                  "families",
+                  "downloadLabel"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              },
+              "assetRefs": {
+                "type": "object",
+                "properties": {
+                  "backdrop": {
+                    "type": "object",
+                    "properties": {
+                      "assetRole": {
+                        "enum": [
+                          "brand-mark-placeholder",
+                          "real-investor-logo",
+                          "third-party-company-logo",
+                          "language-icon",
+                          "photographic-backdrop",
+                          "product-screenshot",
+                          "decorative-icon",
+                          "blog-cover-image",
+                          "generic-avatar-placeholder",
+                          "favicon-app-icon"
+                        ]
+                      },
+                      "path": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "assetRole",
+                      "path"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "appIcon": {
+                    "type": "object",
+                    "properties": {
+                      "assetRole": {
+                        "enum": [
+                          "brand-mark-placeholder",
+                          "real-investor-logo",
+                          "third-party-company-logo",
+                          "language-icon",
+                          "photographic-backdrop",
+                          "product-screenshot",
+                          "decorative-icon",
+                          "blog-cover-image",
+                          "generic-avatar-placeholder",
+                          "favicon-app-icon"
+                        ]
+                      },
+                      "path": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "assetRole",
+                      "path"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.hero-home"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "headline": {
+                    "type": "string"
+                  },
+                  "subhead": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "headline",
+                  "subhead"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.hero-product"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "eyebrow": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "body": {
+                    "type": "string"
+                  },
+                  "ctaLabel": {
+                    "type": "string"
+                  },
+                  "terminalCaption": {
+                    "type": "string"
+                  },
+                  "terminalLines": {
+                    "type": "array",
+                    "maxItems": 20,
+                    "items": {
+                      "type": [
+                        "object",
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "eyebrow",
+                  "title",
+                  "body"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              },
+              "assetRefs": {
+                "type": "object",
+                "properties": {
+                  "backdrop": {
+                    "type": "object",
+                    "properties": {
+                      "assetRole": {
+                        "enum": [
+                          "brand-mark-placeholder",
+                          "real-investor-logo",
+                          "third-party-company-logo",
+                          "language-icon",
+                          "photographic-backdrop",
+                          "product-screenshot",
+                          "decorative-icon",
+                          "blog-cover-image",
+                          "generic-avatar-placeholder",
+                          "favicon-app-icon"
+                        ]
+                      },
+                      "path": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "assetRole",
+                      "path"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.legal-body"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "disclosure": {
+                    "type": "string"
+                  },
+                  "sections": {
+                    "type": "array",
+                    "minItems": 7,
+                    "maxItems": 7,
+                    "items": {
+                      "type": [
+                        "object",
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "title",
+                  "disclosure",
+                  "sections"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.metrics-chart-panel"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "unit": {
+                    "type": "string"
+                  },
+                  "note": {
+                    "type": "string"
+                  },
+                  "rows": {
+                    "type": "array",
+                    "minItems": 4,
+                    "maxItems": 16,
+                    "items": {
+                      "type": [
+                        "object",
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "title",
+                  "unit",
+                  "note",
+                  "rows"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.metrics-header"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "heading": {
+                    "type": "string"
+                  },
+                  "caption": {
+                    "type": "string"
+                  },
+                  "lead": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "heading",
+                  "caption",
+                  "lead"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.metrics-how-we-measure"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "paragraphs": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 3,
+                    "items": {
+                      "type": [
+                        "object",
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "title",
+                  "paragraphs"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.metrics-quality-scatter"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "body": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "title",
+                  "body"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.metrics-sidebar-nav"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "items": {
+                    "type": "array",
+                    "minItems": 5,
+                    "maxItems": 5,
+                    "items": {
+                      "type": [
+                        "object",
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "items"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.model-cards"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "cards": {
+                    "type": "array",
+                    "minItems": 3,
+                    "maxItems": 4,
+                    "items": {
+                      "type": [
+                        "object",
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "title",
+                  "cards"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              },
+              "assetRefs": {
+                "type": "object",
+                "properties": {
+                  "mark": {
+                    "type": "object",
+                    "properties": {
+                      "assetRole": {
+                        "enum": [
+                          "brand-mark-placeholder",
+                          "real-investor-logo",
+                          "third-party-company-logo",
+                          "language-icon",
+                          "photographic-backdrop",
+                          "product-screenshot",
+                          "decorative-icon",
+                          "blog-cover-image",
+                          "generic-avatar-placeholder",
+                          "favicon-app-icon"
+                        ]
+                      },
+                      "path": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "assetRole",
+                      "path"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.model-family-list"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "families": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 6,
+                    "items": {
+                      "type": [
+                        "object",
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "families"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              },
+              "assetRefs": {
+                "type": "object",
+                "properties": {
+                  "familyLogo": {
+                    "type": "object",
+                    "properties": {
+                      "assetRole": {
+                        "enum": [
+                          "brand-mark-placeholder",
+                          "real-investor-logo",
+                          "third-party-company-logo",
+                          "language-icon",
+                          "photographic-backdrop",
+                          "product-screenshot",
+                          "decorative-icon",
+                          "blog-cover-image",
+                          "generic-avatar-placeholder",
+                          "favicon-app-icon"
+                        ]
+                      },
+                      "path": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "assetRole",
+                      "path"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.notfound-body"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "heading": {
+                    "type": "string"
+                  },
+                  "body": {
+                    "type": "string"
+                  },
+                  "ctaLabel": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "heading",
+                  "body",
+                  "ctaLabel"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.page-header-centered"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "eyebrow": {
+                    "type": "string"
+                  },
+                  "heading": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "eyebrow",
+                  "heading"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.page-header-simple"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "heading": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "heading"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.perfect-for"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "cards": {
+                    "type": "array",
+                    "minItems": 3,
+                    "maxItems": 3,
+                    "items": {
+                      "type": [
+                        "object",
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "title",
+                  "cards"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              },
+              "assetRefs": {
+                "type": "object",
+                "properties": {
+                  "cardIcon": {
+                    "type": "object",
+                    "properties": {
+                      "assetRole": {
+                        "enum": [
+                          "brand-mark-placeholder",
+                          "real-investor-logo",
+                          "third-party-company-logo",
+                          "language-icon",
+                          "photographic-backdrop",
+                          "product-screenshot",
+                          "decorative-icon",
+                          "blog-cover-image",
+                          "generic-avatar-placeholder",
+                          "favicon-app-icon"
+                        ]
+                      },
+                      "path": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "assetRole",
+                      "path"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.runtime-features"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "heading": {
+                    "type": "string"
+                  },
+                  "features": {
+                    "type": "array",
+                    "minItems": 3,
+                    "maxItems": 5,
+                    "items": {
+                      "type": [
+                        "object",
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "heading",
+                  "features"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              },
+              "assetRefs": {
+                "type": "object",
+                "properties": {
+                  "backdrop": {
+                    "type": "object",
+                    "properties": {
+                      "assetRole": {
+                        "enum": [
+                          "brand-mark-placeholder",
+                          "real-investor-logo",
+                          "third-party-company-logo",
+                          "language-icon",
+                          "photographic-backdrop",
+                          "product-screenshot",
+                          "decorative-icon",
+                          "blog-cover-image",
+                          "generic-avatar-placeholder",
+                          "favicon-app-icon"
+                        ]
+                      },
+                      "path": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "assetRole",
+                      "path"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.runtime-install-matrix"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "heading": {
+                    "type": "string"
+                  },
+                  "rows": {
+                    "type": "array",
+                    "minItems": 4,
+                    "maxItems": 6,
+                    "items": {
+                      "type": [
+                        "object",
+                        "string"
+                      ]
+                    }
+                  },
+                  "promises": {
+                    "type": "array",
+                    "maxItems": 4,
+                    "items": {
+                      "type": [
+                        "object",
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "heading",
+                  "rows",
+                  "promises"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              },
+              "assetRefs": {
+                "type": "object",
+                "properties": {
+                  "languageMark": {
+                    "type": "object",
+                    "properties": {
+                      "assetRole": {
+                        "enum": [
+                          "brand-mark-placeholder",
+                          "real-investor-logo",
+                          "third-party-company-logo",
+                          "language-icon",
+                          "photographic-backdrop",
+                          "product-screenshot",
+                          "decorative-icon",
+                          "blog-cover-image",
+                          "generic-avatar-placeholder",
+                          "favicon-app-icon"
+                        ]
+                      },
+                      "path": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "assetRole",
+                      "path"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.runtime-install-steps"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "heading": {
+                    "type": "string"
+                  },
+                  "frameworks": {
+                    "type": "array",
+                    "minItems": 3,
+                    "maxItems": 5,
+                    "items": {
+                      "type": [
+                        "object",
+                        "string"
+                      ]
+                    }
+                  },
+                  "steps": {
+                    "type": "array",
+                    "minItems": 3,
+                    "maxItems": 3,
+                    "items": {
+                      "type": [
+                        "object",
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "heading",
+                  "frameworks",
+                  "steps"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              },
+              "assetRefs": {
+                "type": "object",
+                "properties": {
+                  "languageMark": {
+                    "type": "object",
+                    "properties": {
+                      "assetRole": {
+                        "enum": [
+                          "brand-mark-placeholder",
+                          "real-investor-logo",
+                          "third-party-company-logo",
+                          "language-icon",
+                          "photographic-backdrop",
+                          "product-screenshot",
+                          "decorative-icon",
+                          "blog-cover-image",
+                          "generic-avatar-placeholder",
+                          "favicon-app-icon"
+                        ]
+                      },
+                      "path": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "assetRole",
+                      "path"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.shell-footer"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "columns": {
+                    "type": "array",
+                    "maxItems": 3,
+                    "items": {
+                      "type": [
+                        "object",
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "columns"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.shell-navbar"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "logoLabel": {
+                    "type": "string"
+                  },
+                  "productItems": {
+                    "type": "array",
+                    "maxItems": 5,
+                    "items": {
+                      "type": [
+                        "object",
+                        "string"
+                      ]
+                    }
+                  },
+                  "directLinks": {
+                    "type": "array",
+                    "maxItems": 5,
+                    "items": {
+                      "type": [
+                        "object",
+                        "string"
+                      ]
+                    }
+                  },
+                  "companyItems": {
+                    "type": "array",
+                    "maxItems": 2,
+                    "items": {
+                      "type": [
+                        "object",
+                        "string"
+                      ]
+                    }
+                  },
+                  "githubStarCount": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "logoLabel",
+                  "productItems",
+                  "directLinks",
+                  "companyItems"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.speed"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "heading": {
+                    "type": "string"
+                  },
+                  "body": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "heading"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.toolkit-convert-cards"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "cards": {
+                    "type": "array",
+                    "minItems": 2,
+                    "maxItems": 2,
+                    "items": {
+                      "type": [
+                        "object",
+                        "string"
+                      ]
+                    }
+                  },
+                  "customLayerPanel": {
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "cards",
+                  "customLayerPanel"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              },
+              "assetRefs": {
+                "type": "object",
+                "properties": {
+                  "cardBackdrop": {
+                    "type": "object",
+                    "properties": {
+                      "assetRole": {
+                        "enum": [
+                          "brand-mark-placeholder",
+                          "real-investor-logo",
+                          "third-party-company-logo",
+                          "language-icon",
+                          "photographic-backdrop",
+                          "product-screenshot",
+                          "decorative-icon",
+                          "blog-cover-image",
+                          "generic-avatar-placeholder",
+                          "favicon-app-icon"
+                        ]
+                      },
+                      "path": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "assetRole",
+                      "path"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "section": {
+                "const": "section.toolkit-pipeline"
+              },
+              "content": {
+                "type": "object",
+                "properties": {
+                  "heading": {
+                    "type": "string"
+                  },
+                  "cards": {
+                    "type": "array",
+                    "minItems": 3,
+                    "maxItems": 3,
+                    "items": {
+                      "type": [
+                        "object",
+                        "string"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "heading",
+                  "cards"
+                ],
+                "additionalProperties": false
+              },
+              "motion": {
+                "type": "object",
+                "properties": {
+                  "pattern": {
+                    "enum": [
+                      "scroll-reveal",
+                      "canvas-orbital-mark",
+                      "marquee",
+                      "terminal-caret-blink",
+                      "threshold-dot-pulse",
+                      "rise-fade",
+                      "accordion-expand",
+                      "hover-only",
+                      "none"
+                    ]
+                  },
+                  "reducedMotionFallback": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "pattern",
+                  "reducedMotionFallback"
+                ],
+                "additionalProperties": false
+              },
+              "responsive": {
+                "$ref": "#/definitions/responsive"
+              },
+              "assetRefs": {
+                "type": "object",
+                "properties": {
+                  "cardIcon": {
+                    "type": "object",
+                    "properties": {
+                      "assetRole": {
+                        "enum": [
+                          "brand-mark-placeholder",
+                          "real-investor-logo",
+                          "third-party-company-logo",
+                          "language-icon",
+                          "photographic-backdrop",
+                          "product-screenshot",
+                          "decorative-icon",
+                          "blog-cover-image",
+                          "generic-avatar-placeholder",
+                          "favicon-app-icon"
+                        ]
+                      },
+                      "path": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "assetRole",
+                      "path"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "section",
+              "content",
+              "motion",
+              "responsive"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "pageSpecId",
+    "pageSpecVersion",
+    "route",
+    "template",
+    "meta",
+    "nodes"
+  ],
+  "additionalProperties": false,
+  "definitions": {
+    "assetRole": {
+      "enum": [
+        "brand-mark-placeholder",
+        "real-investor-logo",
+        "third-party-company-logo",
+        "language-icon",
+        "photographic-backdrop",
+        "product-screenshot",
+        "decorative-icon",
+        "blog-cover-image",
+        "generic-avatar-placeholder",
+        "favicon-app-icon"
+      ]
+    },
+    "motionPattern": {
+      "enum": [
+        "scroll-reveal",
+        "canvas-orbital-mark",
+        "marquee",
+        "terminal-caret-blink",
+        "threshold-dot-pulse",
+        "rise-fade",
+        "accordion-expand",
+        "hover-only",
+        "none"
+      ]
+    },
+    "responsiveLayoutChange": {
+      "enum": [
+        "column-to-row",
+        "grid-column-count-change",
+        "nav-collapse-to-menu",
+        "hidden-below-breakpoint",
+        "shown-above-breakpoint",
+        "font-size-shift",
+        "spacing-shift",
+        "width-constraint-change",
+        "image-swap",
+        "reorder",
+        "alignment-shift"
+      ]
+    },
+    "responsiveBreakpointChange": {
+      "type": "object",
+      "properties": {
+        "layoutChange": {
+          "$ref": "#/definitions/responsiveLayoutChange"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 240
+        },
+        "citation": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "layoutChange",
+        "description",
+        "citation"
+      ],
+      "additionalProperties": false
+    },
+    "responsive": {
+      "type": "object",
+      "description": "Structured, per-section responsive behavior keyed to real breakpoint tokens from tokens/00-foundation/breakpoint.json. A generator must be able to read this without parsing prose.",
+      "properties": {
+        "noResponsiveChange": {
+          "type": "boolean"
+        },
+        "breakpoints": {
+          "type": "object",
+          "properties": {
+            "sm-640": {
+              "$ref": "#/definitions/responsiveBreakpointChange"
+            },
+            "md-768": {
+              "$ref": "#/definitions/responsiveBreakpointChange"
+            },
+            "nav-810": {
+              "$ref": "#/definitions/responsiveBreakpointChange"
+            },
+            "lg-1024": {
+              "$ref": "#/definitions/responsiveBreakpointChange"
+            },
+            "product-1200": {
+              "$ref": "#/definitions/responsiveBreakpointChange"
+            },
+            "shell-1240": {
+              "$ref": "#/definitions/responsiveBreakpointChange"
+            }
+          },
+          "additionalProperties": false
+        },
+        "citation": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Required (and only meaningful) when noResponsiveChange is true \u2014 cites the exact grep/range showing no responsive class is present."
+        }
+      },
+      "required": [
+        "noResponsiveChange",
+        "breakpoints"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "component.bench-panel",
+  "layer": "component",
+  "purpose": "One benchmark stat block: title/unit line, big value, and a small grouped bar chart with an optional stacked autoregressive sub-segment and hover tooltip.",
+  "citation": "src/components/Shared.jsx:262-323 (BenchPanel)",
+  "composesPrimitives": [],
+  "props": {
+    "title": {
+      "type": "string",
+      "maxWords": 3
+    },
+    "value": {
+      "type": "string"
+    },
+    "unit": {
+      "type": "string"
+    },
+    "rows": {
+      "type": "array",
+      "maxItems": 4
+    }
+  }
+}

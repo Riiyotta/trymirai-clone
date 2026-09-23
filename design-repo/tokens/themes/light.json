@@ -1,0 +1,32 @@
+{
+  "$description": "The one and only real theme in this project. There is no dark-mode toggle or alternate theme anywhere in the source (grep-verified: no prefers-color-scheme handling except the reduced-motion media query, no theme-switch component). This file resolves every semantic role down to its real foundation value.",
+  "measuredFrom": "no theme-switching code exists in src/ — this is the site's single, permanent theme",
+  "themeId": "light",
+  "isDefault": true,
+  "resolvedColors": {
+    "text.primary": "#0A0A0A",
+    "text.secondary": "#3D3D3D",
+    "text.muted": "#8F8F8F",
+    "text.caption": "#8F8F8F",
+    "text.inverse": "#FFFFFF",
+    "text.brand": "#FF6A20",
+    "surface.page": "#FFFFFF",
+    "surface.card": "#F2F1ED",
+    "surface.card-hover": "#EAE9E4",
+    "surface.card-chip": "#EAE8E1",
+    "surface.illustration": "#F6F5F3",
+    "surface.dark": "#121212",
+    "surface.dark-hover": "#1A1A1A",
+    "surface.terminal": "#F2F0ED",
+    "surface.chip-selected": "#EFF0F1",
+    "surface.metrics-card": "#FAFAFA",
+    "border.default": "#CCCCCC",
+    "border.rail": "#C7C7C7",
+    "border.panel": "#E5E5E5",
+    "border.chip": "#D9DCDD",
+    "border.dark-panel": "#3D3D3D",
+    "action.brand": "#FF6A20",
+    "action.brand-hover": "#F05F18",
+    "action.brand-secondary": "#FFA070"
+  }
+}

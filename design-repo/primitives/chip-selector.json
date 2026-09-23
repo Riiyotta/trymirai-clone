@@ -1,0 +1,19 @@
+{
+  "id": "primitive.chip-selector",
+  "layer": "primitive",
+  "purpose": "Pill-shaped selectable chip (checkpoint version + size), toggles the card content below it.",
+  "citation": "src/pages/LocalModels.jsx checkpoint chip row",
+  "props": {
+    "label": {
+      "type": "string",
+      "maxWords": 3
+    },
+    "meta": {
+      "type": "string",
+      "maxWords": 3
+    },
+    "selected": {
+      "type": "boolean"
+    }
+  }
+}

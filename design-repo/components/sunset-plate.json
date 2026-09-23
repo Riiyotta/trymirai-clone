@@ -1,0 +1,23 @@
+{
+  "id": "component.sunset-plate",
+  "layer": "component",
+  "purpose": "Full-bleed cover photo backdrop (one of five sunset-themed webp variants) that sits inside a Frame and hosts a floating terminal/browser composition.",
+  "citation": "src/components/Shared.jsx:75-81 (SunsetPlate)",
+  "assetRole": "photographic-backdrop",
+  "props": {
+    "img": {
+      "type": "string",
+      "enum": [
+        "/shared/sunset-1024.webp",
+        "/shared/sunset-1920.webp",
+        "/shared/sunset-512.webp",
+        "/shared/sunset-sun-1920.webp",
+        "/shared/sunset-wide-1920.webp"
+      ]
+    },
+    "inset": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

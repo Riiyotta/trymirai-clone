@@ -1,0 +1,20 @@
+{
+  "$description": "The curated, referenceable view of the token system handed to a generator. Not every raw token — only what a PageSpec/section is allowed to point at.",
+  "referenceableColors": [
+    "text.primary", "text.secondary", "text.muted", "text.caption", "text.inverse", "text.brand",
+    "surface.page", "surface.card", "surface.card-hover", "surface.card-chip", "surface.illustration",
+    "surface.dark", "surface.dark-hover", "surface.terminal", "surface.chip-selected", "surface.metrics-card",
+    "border.default", "border.rail", "border.panel", "border.chip", "border.dark-panel",
+    "action.brand", "action.brand-hover", "action.brand-secondary",
+    "chart.winner", "chart.winner-hover", "chart.track", "chart.track-hover", "chart.label-on-winner", "chart.label-on-track",
+    "chrome.traffic-red", "chrome.traffic-yellow", "chrome.traffic-green", "chrome.url-pill", "chrome.inner-divider"
+  ],
+  "referenceableTypography": [
+    "heading.hero.home", "heading.hero.page", "heading.section", "heading.product-hero", "heading.card",
+    "heading.routing", "heading.job-section", "heading.careers-close",
+    "body.large", "body.default", "caption", "eyebrow", "product-body", "nav"
+  ],
+  "referenceableSpacing": ["maxWidth.shell", "sectionRhythm.homeGap", "sectionRhythm.sectionHeadTop", "sectionRhythm.faqSectionPad", "sectionRhythm.perfectForTop"],
+  "referenceableBreakpoints": ["nav-810", "product-1200", "shell-1240"],
+  "referenceableMotion": ["scroll-reveal", "canvas-orbital-mark", "marquee", "terminal-caret-blink", "threshold-dot-pulse", "rise-fade", "accordion-expand", "hover-only"]
+}

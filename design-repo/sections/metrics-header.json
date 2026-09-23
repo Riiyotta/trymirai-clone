@@ -1,0 +1,42 @@
+{
+  "id": "section.metrics-header",
+  "layer": "section",
+  "purpose": "Metrics page-top header: h1 'Metrics' + small caption line + a lead paragraph, distinct from the bare page-header-simple pattern used elsewhere.",
+  "measuredFrom": "src/pages/Metrics.jsx:112-119",
+  "content": {
+    "heading": {
+      "type": "string",
+      "maxWords": 2,
+      "required": true
+    },
+    "caption": {
+      "type": "string",
+      "maxWords": 6,
+      "required": true
+    },
+    "lead": {
+      "type": "string",
+      "maxWords": 20,
+      "required": true
+    }
+  },
+  "constraints": {
+    "mustBeFirst": true,
+    "onePerPage": true,
+    "metricsRouteOnly": true
+  },
+  "motion": {
+    "pattern": "scroll-reveal",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": false,
+    "breakpoints": {
+      "md-768": {
+        "layoutChange": "spacing-shift",
+        "description": "Vertical padding around the page header grows from 20px to 48px.",
+        "citation": "src/pages/Metrics.jsx:113"
+      }
+    }
+  }
+}

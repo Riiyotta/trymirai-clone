@@ -1,0 +1,15 @@
+{
+  "$description": "Real icon/mark size histogram, grep-verified against size-N utility usage on <img>/<svg> icon elements.",
+  "measuredFrom": "grep -o \"size-[0-9]*\" src/**/*.jsx",
+  "sizes": {
+    "xs": { "value": "16px (size-4)", "usage": "nav dropdown item icons, install-matrix language icons" },
+    "sm": { "value": "20px (size-5)", "usage": "install-matrix language icons at min-810" },
+    "md": { "value": "36px (size-9)", "usage": "model card marks" },
+    "lg": { "value": "40px (size-10)", "usage": "PerfectFor / pipeline section icons" },
+    "avatar-sm": { "value": "64px (size-16)", "usage": "about-us team avatar circle, chat-for-mac app icon at mobile" },
+    "avatar-lg": { "value": "76px", "usage": "local-models family mark tile" },
+    "mark-sm": { "value": "132px", "usage": "closing/careers orbital mark, mobile" },
+    "mark-md": { "value": "200px", "usage": "closing/careers orbital mark, tablet" },
+    "mark-lg": { "value": "240px", "usage": "home Closing orbital mark, desktop" }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "id": "primitive.badge-eyebrow",
+  "layer": "primitive",
+  "purpose": "Small bordered label used as a hero eyebrow or card tag (e.g. 'Conversion and optimization toolkit', 'For popular architectures').",
+  "citation": "src/pages/ConversionToolkit.jsx BIG_CARDS eyebrow chip; src/components/Shared.jsx type-eyebrow usage",
+  "props": {
+    "label": {
+      "type": "string",
+      "maxWords": 6
+    }
+  }
+}

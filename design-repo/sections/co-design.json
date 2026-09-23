@@ -1,0 +1,36 @@
+{
+  "id": "section.co-design",
+  "layer": "section",
+  "purpose": "'Co-design across the stack' section.",
+  "measuredFrom": "src/components/CoDesign.jsx:1-120",
+  "content": {
+    "heading": {
+      "type": "string",
+      "maxWords": 10,
+      "required": true
+    },
+    "body": {
+      "type": "string",
+      "maxWords": 40,
+      "required": false
+    }
+  },
+  "constraints": {
+    "onePerPage": true,
+    "homeRouteOnly": true
+  },
+  "motion": {
+    "pattern": "scroll-reveal",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": false,
+    "breakpoints": {
+      "md-768": {
+        "layoutChange": "reorder",
+        "description": "Image block appears after the text block (order-2) on mobile and reorders before it (order-none, grid column 1) at md, where the layout also switches from stacked flex to a 2-column grid.",
+        "citation": "src/components/CoDesign.jsx:91-92"
+      }
+    }
+  }
+}

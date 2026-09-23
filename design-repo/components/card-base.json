@@ -1,0 +1,15 @@
+{
+  "id": "component.card-base",
+  "layer": "component",
+  "purpose": "Beige, 0.5px-hairline-bordered, zero-radius card \u2014 the project's single most reused content container (PerfectFor, pipeline, big-cards, model-cards, roles-list, faq rows all build on this shape).",
+  "citation": "tokens/20-component/card.json beige-hairline-card",
+  "props": {
+    "minHeight": {
+      "type": "string"
+    },
+    "hoverable": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

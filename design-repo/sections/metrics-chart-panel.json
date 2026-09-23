@@ -1,0 +1,45 @@
+{
+  "id": "section.metrics-chart-panel",
+  "layer": "section",
+  "purpose": "One bordered, radius-8 panel: title + model count, runner legend, a horizontally-scrollable grouped bar chart (no entry animation, hover-shade only), and a versions/methodology footer.",
+  "measuredFrom": "src/pages/Metrics.jsx:60-96",
+  "content": {
+    "title": {
+      "type": "string",
+      "maxWords": 4,
+      "required": true
+    },
+    "unit": {
+      "type": "string",
+      "maxWords": 2,
+      "required": true
+    },
+    "note": {
+      "type": "string",
+      "maxWords": 5,
+      "required": true
+    },
+    "rows": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 16,
+      "required": true
+    }
+  },
+  "constraints": {
+    "maxPerPage": 3,
+    "metricsRouteOnly": true
+  },
+  "motion": {
+    "pattern": "hover-only",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": true,
+    "breakpoints": {},
+    "citation": "src/pages/Metrics.jsx:60-96 \u2014 no min-[Npx]:/md:/lg: class present anywhere in this component; the panel renders identically (horizontally-scrollable chart) at every viewport width."
+  },
+  "notes": [
+    "Figures are representative placeholders for this clone per the in-code comment (src/pages/Metrics.jsx:2-3)."
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "id": "section.bench-strip",
+  "layer": "section",
+  "purpose": "'What Apple Silicon delivers today' benchmark strip: three stat panels (output/input/memory), each a small grouped bar chart, plus a link to /local-models.",
+  "measuredFrom": "src/components/Shared.jsx:196-260, 326-359",
+  "content": {
+    "modelLabel": {
+      "type": "string",
+      "maxWords": 6,
+      "required": true
+    },
+    "deviceLabel": {
+      "type": "string",
+      "maxWords": 6,
+      "required": true
+    },
+    "panels": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "required": true
+    }
+  },
+  "constraints": {
+    "onePerPage": true
+  },
+  "motion": {
+    "pattern": "hover-only",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": false,
+    "breakpoints": {
+      "sm-640": {
+        "layoutChange": "column-to-row",
+        "description": "The device/label control row stacks vertically below 640px and becomes a horizontal row at sm.",
+        "citation": "src/components/Shared.jsx:338"
+      },
+      "nav-810": {
+        "layoutChange": "grid-column-count-change",
+        "description": "Bench cells go from a single stacked column to a 3-column grid, and cell borders switch from top-borders to left-borders.",
+        "citation": "src/components/Shared.jsx:344"
+      }
+    }
+  },
+  "notes": [
+    "Figures are representative placeholders for this clone per the in-code comment, not Mirai Labs' published measurements \u2014 a generator must not present generated numbers as real published benchmarks."
+  ]
+}

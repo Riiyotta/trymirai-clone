@@ -1,0 +1,23 @@
+{
+  "id": "component.nav-dropdown",
+  "layer": "component",
+  "purpose": "Hover-opened navbar dropdown panel (Product / Company menus), icon + label rows, one muted/disabled row supported ('Inference for Android \u2022 Soon').",
+  "citation": "src/components/Navbar.jsx:29-53 (Dropdown)",
+  "composesPrimitives": [
+    "icon",
+    "link"
+  ],
+  "props": {
+    "label": {
+      "type": "string",
+      "maxWords": 2
+    },
+    "items": {
+      "type": "array",
+      "maxItems": 5
+    },
+    "width": {
+      "type": "number"
+    }
+  }
+}

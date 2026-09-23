@@ -1,0 +1,34 @@
+{
+  "id": "section.framed-screenshot",
+  "layer": "section",
+  "purpose": "One real product screenshot rendered full-bleed inside a Frame, with separate responsive desktop (1200x696) and mobile (390x560) crops.",
+  "measuredFrom": "src/pages/ChatForMac.jsx:68-91",
+  "content": {
+    "alt": {
+      "type": "string",
+      "maxWords": 10,
+      "required": true
+    }
+  },
+  "constraints": {
+    "onePerPage": true,
+    "chatMacRouteOnly": true
+  },
+  "motion": {
+    "pattern": "scroll-reveal",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": false,
+    "breakpoints": {
+      "nav-810": {
+        "layoutChange": "image-swap",
+        "description": "A 390:560-aspect mobile screenshot frame (visible below 810px) is swapped for a fixed 1200px-wide, 1200:696-aspect desktop frame (hidden below 810px, block at 810px).",
+        "citation": "src/pages/ChatForMac.jsx:78,85"
+      }
+    }
+  },
+  "assetRoles": {
+    "screenshot": "product-screenshot"
+  }
+}

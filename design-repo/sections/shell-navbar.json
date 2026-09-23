@@ -1,0 +1,50 @@
+{
+  "id": "section.shell-navbar",
+  "layer": "section",
+  "purpose": "Sticky top navigation: collapsing logo rail, Product/Company dropdowns, five direct links, social icons, mobile sheet.",
+  "measuredFrom": "src/components/Navbar.jsx:1-219",
+  "content": {
+    "logoLabel": {
+      "type": "string",
+      "maxWords": 2,
+      "required": true
+    },
+    "productItems": {
+      "type": "array",
+      "maxItems": 5,
+      "required": true
+    },
+    "directLinks": {
+      "type": "array",
+      "maxItems": 5,
+      "required": true
+    },
+    "companyItems": {
+      "type": "array",
+      "maxItems": 2,
+      "required": true
+    },
+    "githubStarCount": {
+      "type": "integer",
+      "required": false
+    }
+  },
+  "constraints": {
+    "onePerPage": true,
+    "note": "This section's first-position requirement is enforced directly by compatibility/graph.json's SHELL_BOUNDARIES rule (nodes[0].section must equal section.shell-navbar), not by the generic mustBeFirst/MUST_BE_FIRST check \u2014 that check assumes 'immediately after shell-navbar', which does not apply to shell-navbar itself."
+  },
+  "motion": {
+    "pattern": "hover-only",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": false,
+    "breakpoints": {
+      "nav-810": {
+        "layoutChange": "nav-collapse-to-menu",
+        "description": "The inline nav link row and desktop right-side controls are hidden below 810px and shown (flex) at 810px; the hamburger menu button and its full-width mobile menu panel do the reverse (shown below 810px, hidden at 810px).",
+        "citation": "src/components/Navbar.jsx:109,127,137,157"
+      }
+    }
+  }
+}

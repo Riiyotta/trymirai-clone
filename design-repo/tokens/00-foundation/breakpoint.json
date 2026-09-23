@@ -1,0 +1,13 @@
+{
+  "$description": "Real breakpoints used repeatedly across the codebase (Tailwind arbitrary min-width variants). Not a config-declared scale (project uses default Tailwind screens plus ad hoc min-[Npx]: variants) — this is a grep-verified histogram of the values actually used.",
+  "measuredFrom": "grep -o \"min-\\[[0-9]*px\\]\" across src/**/*.jsx",
+  "breakpoints": {
+    "sm-640": { "value": "640px", "usage": "rare, menu-bar item visibility on inference-runtime browser mock" },
+    "md-768": { "value": "768px", "usage": "Tailwind default md:, used for icon sizing / minor layout shifts" },
+    "nav-810": { "value": "810px", "usage": "the dominant mobile/desktop split across nearly every page and section — nav collapse, hero column stacking, card grid collapse" },
+    "lg-1024": { "value": "1024px", "usage": "Tailwind default lg:, careers page padding steps" },
+    "product-1200": { "value": "1200px", "usage": "hero two-column split point on product pages, matches shell maxWidth" },
+    "shell-1240": { "value": "1240px", "usage": "point at which shell padding drops to 0 (shell hits its 1200px cap with room to spare)" }
+  },
+  "note": "810px is the single most load-bearing breakpoint in this design system — nearly every section's mobile/desktop split happens there, not at Tailwind's default md (768px)."
+}

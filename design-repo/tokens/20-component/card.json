@@ -1,0 +1,23 @@
+{
+  "$description": "Component-scoped token overrides for the recurring 'beige hairline card' pattern (used by PerfectFor, pipeline, big-cards, model-cards, faq items, roles-list) and the 'chrome metrics card' pattern (local-models checkpoint card, metrics chart panel).",
+  "beige-hairline-card": {
+    "background": { "ref": "surface.card" },
+    "backgroundHover": { "ref": "surface.card-hover" },
+    "border": { "ref": "border.default", "width": "0.5px" },
+    "radius": "0px",
+    "citation": "src/components/Shared.jsx PerfectFor/pipeline card classes, src/pages/ConversionToolkit.jsx PIPELINE cards"
+  },
+  "chrome-metrics-card": {
+    "background": { "ref": "surface.metrics-card" },
+    "border": { "ref": "border.panel", "width": "0.5px" },
+    "radius": "20px",
+    "citation": "src/pages/LocalModels.jsx checkpoint card"
+  },
+  "terminal-card": {
+    "background": "white",
+    "border": { "ref": "border.default", "width": "1px" },
+    "radius": "12px",
+    "headerDivider": { "ref": "chrome.inner-divider" },
+    "citation": "src/components/Shared.jsx TerminalCard"
+  }
+}

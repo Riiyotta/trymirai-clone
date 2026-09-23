@@ -1,0 +1,7 @@
+{
+  "id": "primitive.traffic-lights",
+  "layer": "primitive",
+  "purpose": "Three macOS-style traffic-light dots (red/yellow/green) used in every terminal/browser chrome header.",
+  "citation": "src/components/Shared.jsx Lights",
+  "props": {}
+}

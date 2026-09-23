@@ -1,0 +1,41 @@
+{
+  "id": "section.about-backer-grid",
+  "layer": "section",
+  "purpose": "4-up (2-up mobile) grid of 160px investor/backer logo cards.",
+  "measuredFrom": "src/pages/AboutUs.jsx:15-18, 170-186",
+  "content": {
+    "heading": {
+      "type": "string",
+      "maxWords": 8,
+      "required": true
+    },
+    "backers": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 8,
+      "required": true
+    }
+  },
+  "constraints": {
+    "onePerPage": true,
+    "aboutRouteOnly": true,
+    "mustBeLastBeforeFooter": true
+  },
+  "motion": {
+    "pattern": "scroll-reveal",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": false,
+    "breakpoints": {
+      "md-768": {
+        "layoutChange": "grid-column-count-change",
+        "description": "Backer logo grid goes from 2 columns to 4 columns at md.",
+        "citation": "src/pages/AboutUs.jsx:149"
+      }
+    }
+  },
+  "assetRoles": {
+    "logo": "real-investor-logo"
+  }
+}

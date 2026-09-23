@@ -1,0 +1,20 @@
+{
+  "id": "primitive.button-cta",
+  "layer": "primitive",
+  "purpose": "Primary call-to-action button/link: dark fill, label + right arrow icon.",
+  "citation": "src/components/Shared.jsx:38-45 (Cta)",
+  "props": {
+    "label": {
+      "type": "string",
+      "maxWords": 4,
+      "default": "Talk to us"
+    },
+    "href": {
+      "type": "string"
+    }
+  },
+  "variants": [
+    "default (240x53, bg-ink)",
+    "full-width (used inside closing-band footer)"
+  ]
+}

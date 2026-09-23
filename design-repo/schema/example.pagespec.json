@@ -1,0 +1,274 @@
+{
+  "pageSpecId": "example.home",
+  "pageSpecVersion": "1.1.0",
+  "route": "/",
+  "template": "template.home",
+  "meta": {
+    "title": "On-Device AI for Apple Silicon: uzu & Models | Mirai Labs",
+    "description": "Mirai Labs builds uzu, a Rust LLM engine for iPhone, iPad and Mac, and 4-bit/8-bit Qwen, LFM and Muse-Glimmer models benchmarked vs MLX and llama.cpp."
+  },
+  "nodes": [
+    {
+      "section": "section.shell-navbar",
+      "content": {
+        "logoLabel": "Mirai Labs",
+        "productItems": [
+          "Inference engine",
+          "Model conversion",
+          "macOS app",
+          "CLI tool",
+          "Inference for Android \u00b7 Soon"
+        ],
+        "directLinks": [
+          "Models",
+          "Metrics",
+          "Research",
+          "Docs",
+          "Careers"
+        ],
+        "companyItems": [
+          "About us",
+          "Contact us"
+        ],
+        "githubStarCount": 1811
+      },
+      "motion": {
+        "pattern": "hover-only",
+        "reducedMotionFallback": "not applicable \u2014 already a static, non-looping transition under 0.2s (src/components/Navbar.jsx Dropdown)"
+      },
+      "responsive": {
+        "noResponsiveChange": false,
+        "breakpoints": {
+          "nav-810": {
+            "layoutChange": "nav-collapse-to-menu",
+            "description": "The inline nav link row and desktop right-side controls are hidden below 810px and shown (flex) at 810px; the hamburger menu button and its full-width mobile menu panel do the reverse (shown below 810px, hidden at 810px).",
+            "citation": "src/components/Navbar.jsx:109,127,137,157"
+          }
+        }
+      }
+    },
+    {
+      "section": "section.hero-home",
+      "content": {
+        "headline": "Models, runtime & infrastructure to make on-device AI interactive, ambient & continuous.",
+        "subhead": "The coming wave of AI products will be shaped by continuous interaction rather than one-off prompts and chat turns. That shift only works once latency stops being felt."
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "not applicable \u2014 hero renders immediately above the fold with no entry motion; not wrapped in Reveal"
+      },
+      "responsive": {
+        "noResponsiveChange": false,
+        "breakpoints": {
+          "md-768": {
+            "layoutChange": "spacing-shift",
+            "description": "Visual panel height grows from 340px to 406px and top spacing/gaps increase.",
+            "citation": "src/components/Hero.jsx:135,150"
+          },
+          "lg-1024": {
+            "layoutChange": "column-to-row",
+            "description": "Heading+visual stack vertically (flex-col) below 1024px; at lg the container switches to `lg:block` with the visual panel absolutely positioned beside the heading (720px tall, 958px wide, min-height 720px).",
+            "citation": "src/components/Hero.jsx:137,150-151"
+          }
+        }
+      }
+    },
+    {
+      "section": "section.appgrid",
+      "content": {
+        "heading": "The next decade collapses the app grid into one interface.",
+        "body": "A single instruction, several services, no launches. The assistant settles the whole thing in one interaction instead of a dozen app switches."
+      },
+      "motion": {
+        "pattern": "scroll-reveal",
+        "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+      },
+      "responsive": {
+        "noResponsiveChange": false,
+        "breakpoints": {
+          "md-768": {
+            "layoutChange": "grid-column-count-change",
+            "description": "Each feature block goes from a single stacked column to a 2-column grid with a shared border; the image tile reorders from last to first (order-last -> order-none).",
+            "citation": "src/components/AppGrid.jsx:115-116"
+          },
+          "lg-1024": {
+            "layoutChange": "spacing-shift",
+            "description": "Text-column left/right padding increases from 24px (md:pl-6) to 40px (lg:pl-10).",
+            "citation": "src/components/AppGrid.jsx:119"
+          }
+        }
+      }
+    },
+    {
+      "section": "section.speed",
+      "content": {
+        "heading": "1,000 t/s is where models become interfaces.",
+        "body": "Execution speed we are aiming for across every supported checkpoint on Apple Silicon."
+      },
+      "motion": {
+        "pattern": "scroll-reveal",
+        "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+      },
+      "responsive": {
+        "noResponsiveChange": false,
+        "breakpoints": {
+          "md-768": {
+            "layoutChange": "spacing-shift",
+            "description": "Benchmark strip height grows from 387px to 454px and switches from a wide horizontally-centered overflow track to a full-width, non-offset track.",
+            "citation": "src/components/Speed.jsx:124-125"
+          },
+          "lg-1024": {
+            "layoutChange": "grid-column-count-change",
+            "description": "The three stat columns stack in a single column below 1024px and become a fixed 3-column grid (333px each) at lg.",
+            "citation": "src/components/Speed.jsx:131"
+          }
+        }
+      }
+    },
+    {
+      "section": "section.execution-stack",
+      "content": {
+        "heading": "1,000 t/s requires a different execution stack.",
+        "body": "Interactive AI is never a single response. It is a loop that keeps running \u2014 parse, validate, rank, render \u2014 and every leg of it carries its own latency budget."
+      },
+      "motion": {
+        "pattern": "scroll-reveal",
+        "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+      },
+      "responsive": {
+        "noResponsiveChange": false,
+        "breakpoints": {
+          "md-768": {
+            "layoutChange": "grid-column-count-change",
+            "description": "Single stacked column becomes a 2-column grid at md; the image tile reorders from after the text (order-last) to before it (order-none).",
+            "citation": "src/components/ExecutionStack.jsx:82-83"
+          }
+        }
+      }
+    },
+    {
+      "section": "section.cloud-vs-device",
+      "content": {
+        "heading": "On-device is not a smaller cloud.",
+        "body": "It's a different system entirely \u2014 why can't we just run a cloud model on a device?"
+      },
+      "motion": {
+        "pattern": "scroll-reveal",
+        "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+      },
+      "responsive": {
+        "noResponsiveChange": false,
+        "breakpoints": {
+          "md-768": {
+            "layoutChange": "grid-column-count-change",
+            "description": "The comparison block stacks in a single column below 768px and becomes a 2-column grid at md.",
+            "citation": "src/components/CloudVsDevice.jsx:13"
+          },
+          "lg-1024": {
+            "layoutChange": "spacing-shift",
+            "description": "Comparison card padding/gap increases from 12px (md:p-3) to 20px (lg:p-5).",
+            "citation": "src/components/CloudVsDevice.jsx:21"
+          }
+        }
+      }
+    },
+    {
+      "section": "section.co-design",
+      "content": {
+        "heading": "Performance emerges from co-design across the stack.",
+        "body": "On a phone or a laptop every request is handled on its own \u2014 nothing to batch it with and nowhere to parallelise. Mirai designs the model and the runtime together around that constraint."
+      },
+      "motion": {
+        "pattern": "scroll-reveal",
+        "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+      },
+      "responsive": {
+        "noResponsiveChange": false,
+        "breakpoints": {
+          "md-768": {
+            "layoutChange": "reorder",
+            "description": "Image block appears after the text block (order-2) on mobile and reorders before it (order-none, grid column 1) at md, where the layout also switches from stacked flex to a 2-column grid.",
+            "citation": "src/components/CoDesign.jsx:91-92"
+          }
+        }
+      }
+    },
+    {
+      "section": "section.full-stack",
+      "content": {
+        "heading": "The full on-device stack to achieve realtime local intelligence.",
+        "body": "We are building every layer ourselves, from the model through the runtime to the quantization scheme."
+      },
+      "motion": {
+        "pattern": "scroll-reveal",
+        "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+      },
+      "responsive": {
+        "noResponsiveChange": false,
+        "breakpoints": {
+          "lg-1024": {
+            "layoutChange": "column-to-row",
+            "description": "Each layer row stacks its label/detail vertically below 1024px; at lg, rows become a fixed 64px-tall horizontal layout via `lg:contents`, functioning like table rows.",
+            "citation": "src/components/FullStack.jsx:37,43,49"
+          }
+        }
+      }
+    },
+    {
+      "section": "section.closing-home",
+      "content": {
+        "headline": "On-device AI deserves its own frontier lab",
+        "body": "The silicon has shipped. Two billion devices are waiting. The software is the open problem \u2014 and it is ours to solve."
+      },
+      "motion": {
+        "pattern": "canvas-orbital-mark",
+        "reducedMotionFallback": "canvas draw loop checks window.matchMedia('(prefers-reduced-motion: reduce)') and never advances past the first frame, rendering as a single static illustration"
+      },
+      "responsive": {
+        "noResponsiveChange": false,
+        "breakpoints": {
+          "md-768": {
+            "layoutChange": "width-constraint-change",
+            "description": "Avatar grows 132px to 200px and heading/body max-width grow (heading 270px->520px, body 283px->552px).",
+            "citation": "src/components/Closing.jsx:43,46,49"
+          },
+          "lg-1024": {
+            "layoutChange": "spacing-shift",
+            "description": "Avatar grows further to 240px while top padding decreases slightly (pt-10 -> lg:pt-8).",
+            "citation": "src/components/Closing.jsx:41,43"
+          }
+        }
+      },
+      "assetRefs": {
+        "mark": {
+          "assetRole": "brand-mark-placeholder",
+          "path": "generated:closing-mark"
+        }
+      }
+    },
+    {
+      "section": "section.shell-footer",
+      "content": {
+        "columns": [
+          "Main",
+          "Company",
+          "Links"
+        ]
+      },
+      "motion": {
+        "pattern": "none",
+        "reducedMotionFallback": "not applicable \u2014 static content, hover-only link transitions"
+      },
+      "responsive": {
+        "noResponsiveChange": false,
+        "breakpoints": {
+          "md-768": {
+            "layoutChange": "hidden-below-breakpoint",
+            "description": "The desktop footer row (66px utility bar + 318px column layout) is hidden below md and shown (flex) at md; a separate stacked mobile footer block is shown below md and hidden (md:hidden) at md.",
+            "citation": "src/components/Footer.jsx:35,52,76"
+          }
+        }
+      }
+    }
+  ]
+}

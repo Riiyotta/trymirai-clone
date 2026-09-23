@@ -1,0 +1,54 @@
+{
+  "id": "section.careers-about-why",
+  "layer": "section",
+  "purpose": "Two-column 'About us' / 'Why us?' copy blocks, single column on mobile.",
+  "measuredFrom": "src/pages/Careers.jsx:66-90",
+  "content": {
+    "aboutHeading": {
+      "type": "string",
+      "maxWords": 3,
+      "required": true
+    },
+    "aboutParagraphs": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 2,
+      "required": true,
+      "itemFields": {
+        "maxWords": 45
+      }
+    },
+    "whyHeading": {
+      "type": "string",
+      "maxWords": 3,
+      "required": true
+    },
+    "whyParagraphs": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 2,
+      "required": true,
+      "itemFields": {
+        "maxWords": 45
+      }
+    }
+  },
+  "constraints": {
+    "onePerPage": true,
+    "careersRouteOnly": true
+  },
+  "motion": {
+    "pattern": "scroll-reveal",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": false,
+    "breakpoints": {
+      "lg-1024": {
+        "layoutChange": "grid-column-count-change",
+        "description": "The two 'why now' content blocks stack in a single column below 1024px and become a 2-column grid at lg.",
+        "citation": "src/pages/Careers.jsx:73"
+      }
+    }
+  }
+}

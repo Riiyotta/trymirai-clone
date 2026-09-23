@@ -1,0 +1,10 @@
+{
+  "id": "component.hero-rule",
+  "layer": "component",
+  "purpose": "4px dot + 0.5px hairline rule drawn between hero copy blocks on product pages.",
+  "citation": "src/components/Shared.jsx:20-27 (HeroRule)",
+  "composesPrimitives": [
+    "divider-hairline"
+  ],
+  "props": {}
+}

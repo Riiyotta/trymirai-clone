@@ -1,0 +1,19 @@
+{
+  "$description": "What is enforced by the schema/validator vs. what is convention-only. Every category name here matches a real key in tokens/00-foundation and tokens/10-semantic — not a convenient human label (see MASTER-GUIDE.md 3.21).",
+  "enforced": {
+    "color": "A section's `content` fields never carry a raw color value; sections reference semantic roles only, which schema/semantic_validate.py checks by rejecting any hex-looking string in a content field.",
+    "assetRole": "Closed enum, schema-enforced (see tokens/llm/component-allowlist.json and schema/pagespec.schema.json definitions.assetRole).",
+    "motion": "Closed set of pattern ids from tokens/00-foundation/motion.json, schema-enforced via definitions.motion."
+  },
+  "conventionOnly": {
+    "fontSize": "The .type-* utility classes in tokens/00-foundation/typography.json are a documentation-only scale; nothing in the PageSpec schema currently carries a raw pixel size for text, so there is nothing to validate at the PageSpec layer. If a future PageSpec field allows raw typography overrides, this policy must gain an enforced entry and a matching schema/validator check.",
+    "fontWeight": "Same as fontSize — variable-font axis values (wght/opsz/SOFT/WONK) are real and cited in tokens/00-foundation/typography.json but are not a PageSpec-level field today.",
+    "elevation": "tokens/00-foundation/elevation.json is documentation-only; only two real shadow values exist in the whole project and neither is exposed as a PageSpec field."
+  },
+  "overrides": {
+    "note": "PageSpecs in this design-repo carry no per-instance style/token-override field at all (see schema/pagespec.schema.json — nodes reference a section id + content + motion only). Styling is fully owned by the section/component contracts, not by a generated instance. This is recorded here explicitly per MASTER-GUIDE.md 3.21 rather than inventing a token-override mechanism just to have something to validate.",
+    "rawValueRestrictions": {
+      "color": "no raw hex/rgb values permitted in any PageSpec content field — enforced (see 'enforced' above)"
+    }
+  }
+}

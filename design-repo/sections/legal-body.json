@@ -1,0 +1,55 @@
+{
+  "id": "section.legal-body",
+  "layer": "section",
+  "purpose": "Narrow 720px legal-page body: h1, a structural disclosure paragraph, then N hairline-divided section placeholders (Who we are / What we collect / How we use it / Sharing and processors / Retention / Your rights / Contact).",
+  "measuredFrom": "src/pages/Legal.jsx:1-32",
+  "content": {
+    "title": {
+      "type": "string",
+      "maxWords": 6,
+      "required": true
+    },
+    "disclosure": {
+      "type": "string",
+      "maxWords": 40,
+      "required": true
+    },
+    "sections": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "required": true,
+      "itemFields": {
+        "heading": {
+          "maxWords": 5
+        },
+        "body": {
+          "maxWords": 20
+        }
+      }
+    }
+  },
+  "constraints": {
+    "mustBeFirst": true,
+    "onePerPage": true,
+    "legalRouteOnly": true,
+    "mustBeLastBeforeFooter": true
+  },
+  "motion": {
+    "pattern": "scroll-reveal",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": false,
+    "breakpoints": {
+      "nav-810": {
+        "layoutChange": "spacing-shift",
+        "description": "Top padding grows from 32px to 56px.",
+        "citation": "src/pages/Legal.jsx:13"
+      }
+    }
+  },
+  "notes": [
+    "The real legal text on trymirai.com is Mirai Labs' own legal copy and is not reproduced \u2014 src/pages/Legal.jsx:3-4, 20-21. A generated PageSpec must preserve this disclosure rather than fabricating real-sounding legal terms."
+  ]
+}

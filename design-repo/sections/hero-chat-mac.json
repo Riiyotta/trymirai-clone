@@ -1,0 +1,51 @@
+{
+  "id": "section.hero-chat-mac",
+  "layer": "section",
+  "purpose": "Full-bleed sunset-backdrop hero: app icon, serif headline, supporting copy, a masked 17s marquee of model-family chips, and a download CTA.",
+  "measuredFrom": "src/pages/ChatForMac.jsx:23-66",
+  "content": {
+    "headline": {
+      "type": "string",
+      "maxWords": 8,
+      "required": true
+    },
+    "body": {
+      "type": "string",
+      "maxWords": 28,
+      "required": true
+    },
+    "families": {
+      "type": "array",
+      "maxItems": 6,
+      "required": true
+    },
+    "downloadLabel": {
+      "type": "string",
+      "maxWords": 6,
+      "required": true
+    }
+  },
+  "constraints": {
+    "mustBeFirst": true,
+    "onePerPage": true,
+    "chatMacRouteOnly": true
+  },
+  "motion": {
+    "pattern": "marquee",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": false,
+    "breakpoints": {
+      "nav-810": {
+        "layoutChange": "font-size-shift",
+        "description": "H1 grows from 40px to 48px and its max-width constraint is removed; a trailing subtitle clause (', with complete privacy & security') is hidden below 810px and shown inline at 810px.",
+        "citation": "src/pages/ChatForMac.jsx:42,48"
+      }
+    }
+  },
+  "assetRoles": {
+    "backdrop": "photographic-backdrop",
+    "appIcon": "decorative-icon"
+  }
+}

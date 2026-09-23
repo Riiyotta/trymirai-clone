@@ -1,0 +1,622 @@
+{
+  "$description": "Closed allowlist of every id an LLM/generator may instantiate, and every real settable property on it. Cross-checked against the live schema/sections/components/primitives files by extraction/verify_all.py's allowlist-parity check \u2014 every id here must have a matching contract file, and every real contract file must have an entry here.",
+  "allowlistVersion": "1.0.0",
+  "entries": {
+    "primitive.avatar-generic": {
+      "id": "primitive.avatar-generic",
+      "layer": "primitive",
+      "contractFile": "primitives/avatar-generic.json",
+      "settableFields": []
+    },
+    "primitive.badge-eyebrow": {
+      "id": "primitive.badge-eyebrow",
+      "layer": "primitive",
+      "contractFile": "primitives/badge-eyebrow.json",
+      "settableFields": [
+        "label"
+      ]
+    },
+    "primitive.button-cta": {
+      "id": "primitive.button-cta",
+      "layer": "primitive",
+      "contractFile": "primitives/button-cta.json",
+      "settableFields": [
+        "href",
+        "label"
+      ]
+    },
+    "primitive.chip-selector": {
+      "id": "primitive.chip-selector",
+      "layer": "primitive",
+      "contractFile": "primitives/chip-selector.json",
+      "settableFields": [
+        "label",
+        "meta",
+        "selected"
+      ]
+    },
+    "primitive.divider-hairline": {
+      "id": "primitive.divider-hairline",
+      "layer": "primitive",
+      "contractFile": "primitives/divider-hairline.json",
+      "settableFields": [
+        "orientation"
+      ]
+    },
+    "primitive.icon": {
+      "id": "primitive.icon",
+      "layer": "primitive",
+      "contractFile": "primitives/icon.json",
+      "settableFields": [
+        "name"
+      ]
+    },
+    "primitive.link": {
+      "id": "primitive.link",
+      "layer": "primitive",
+      "contractFile": "primitives/link.json",
+      "settableFields": [
+        "children",
+        "href"
+      ]
+    },
+    "primitive.orbital-mark": {
+      "id": "primitive.orbital-mark",
+      "layer": "primitive",
+      "contractFile": "primitives/orbital-mark.json",
+      "settableFields": [
+        "size"
+      ]
+    },
+    "primitive.terminal-caret": {
+      "id": "primitive.terminal-caret",
+      "layer": "primitive",
+      "contractFile": "primitives/terminal-caret.json",
+      "settableFields": []
+    },
+    "primitive.traffic-lights": {
+      "id": "primitive.traffic-lights",
+      "layer": "primitive",
+      "contractFile": "primitives/traffic-lights.json",
+      "settableFields": []
+    },
+    "component.bench-panel": {
+      "id": "component.bench-panel",
+      "layer": "component",
+      "contractFile": "components/bench-panel.json",
+      "settableFields": [
+        "rows",
+        "title",
+        "unit",
+        "value"
+      ]
+    },
+    "component.card-base": {
+      "id": "component.card-base",
+      "layer": "component",
+      "contractFile": "components/card-base.json",
+      "settableFields": [
+        "hoverable",
+        "minHeight"
+      ]
+    },
+    "component.faq-item": {
+      "id": "component.faq-item",
+      "layer": "component",
+      "contractFile": "components/faq-item.json",
+      "settableFields": [
+        "answer",
+        "question"
+      ]
+    },
+    "component.frame": {
+      "id": "component.frame",
+      "layer": "component",
+      "contractFile": "components/frame.json",
+      "settableFields": [
+        "hideOnMobile",
+        "tight"
+      ]
+    },
+    "component.hero-rule": {
+      "id": "component.hero-rule",
+      "layer": "component",
+      "contractFile": "components/hero-rule.json",
+      "settableFields": []
+    },
+    "component.nav-dropdown": {
+      "id": "component.nav-dropdown",
+      "layer": "component",
+      "contractFile": "components/nav-dropdown.json",
+      "settableFields": [
+        "items",
+        "label",
+        "width"
+      ]
+    },
+    "component.sunset-plate": {
+      "id": "component.sunset-plate",
+      "layer": "component",
+      "contractFile": "components/sunset-plate.json",
+      "settableFields": [
+        "img",
+        "inset"
+      ]
+    },
+    "component.terminal-card": {
+      "id": "component.terminal-card",
+      "layer": "component",
+      "contractFile": "components/terminal-card.json",
+      "settableFields": [
+        "caption",
+        "lines"
+      ]
+    },
+    "section.about-backer-grid": {
+      "id": "section.about-backer-grid",
+      "layer": "section",
+      "contractFile": "sections/about-backer-grid.json",
+      "settableFields": [
+        "backers",
+        "heading"
+      ],
+      "assetRefKeys": [
+        "logo"
+      ]
+    },
+    "section.about-hero": {
+      "id": "section.about-hero",
+      "layer": "section",
+      "contractFile": "sections/about-hero.json",
+      "settableFields": [
+        "headline"
+      ]
+    },
+    "section.about-prose-block": {
+      "id": "section.about-prose-block",
+      "layer": "section",
+      "contractFile": "sections/about-prose-block.json",
+      "settableFields": [
+        "heading",
+        "paragraphs"
+      ]
+    },
+    "section.about-team-cards": {
+      "id": "section.about-team-cards",
+      "layer": "section",
+      "contractFile": "sections/about-team-cards.json",
+      "settableFields": [
+        "members"
+      ],
+      "assetRefKeys": [
+        "avatar"
+      ]
+    },
+    "section.appgrid": {
+      "id": "section.appgrid",
+      "layer": "section",
+      "contractFile": "sections/appgrid.json",
+      "settableFields": [
+        "body",
+        "heading"
+      ]
+    },
+    "section.bench-strip": {
+      "id": "section.bench-strip",
+      "layer": "section",
+      "contractFile": "sections/bench-strip.json",
+      "settableFields": [
+        "deviceLabel",
+        "modelLabel",
+        "panels"
+      ]
+    },
+    "section.blog-header": {
+      "id": "section.blog-header",
+      "layer": "section",
+      "contractFile": "sections/blog-header.json",
+      "settableFields": [
+        "heading",
+        "subhead"
+      ]
+    },
+    "section.blog-post-article": {
+      "id": "section.blog-post-article",
+      "layer": "section",
+      "contractFile": "sections/blog-post-article.json",
+      "settableFields": [
+        "blurb",
+        "disclosure",
+        "tag",
+        "title"
+      ],
+      "assetRefKeys": [
+        "cover"
+      ]
+    },
+    "section.blog-post-list": {
+      "id": "section.blog-post-list",
+      "layer": "section",
+      "contractFile": "sections/blog-post-list.json",
+      "settableFields": [
+        "posts"
+      ],
+      "assetRefKeys": [
+        "cover"
+      ]
+    },
+    "section.careers-about-why": {
+      "id": "section.careers-about-why",
+      "layer": "section",
+      "contractFile": "sections/careers-about-why.json",
+      "settableFields": [
+        "aboutHeading",
+        "aboutParagraphs",
+        "whyHeading",
+        "whyParagraphs"
+      ]
+    },
+    "section.careers-closing-cta": {
+      "id": "section.careers-closing-cta",
+      "layer": "section",
+      "contractFile": "sections/careers-closing-cta.json",
+      "settableFields": [
+        "body",
+        "ctaLabel",
+        "headline"
+      ],
+      "assetRefKeys": [
+        "mark"
+      ]
+    },
+    "section.careers-roles-list": {
+      "id": "section.careers-roles-list",
+      "layer": "section",
+      "contractFile": "sections/careers-roles-list.json",
+      "settableFields": [
+        "heading",
+        "roles"
+      ]
+    },
+    "section.closing-band": {
+      "id": "section.closing-band",
+      "layer": "section",
+      "contractFile": "sections/closing-band.json",
+      "settableFields": [
+        "blurb",
+        "title"
+      ],
+      "assetRefKeys": [
+        "backdrop"
+      ]
+    },
+    "section.closing-home": {
+      "id": "section.closing-home",
+      "layer": "section",
+      "contractFile": "sections/closing-home.json",
+      "settableFields": [
+        "body",
+        "headline"
+      ],
+      "assetRefKeys": [
+        "mark"
+      ]
+    },
+    "section.cloud-vs-device": {
+      "id": "section.cloud-vs-device",
+      "layer": "section",
+      "contractFile": "sections/cloud-vs-device.json",
+      "settableFields": [
+        "body",
+        "heading"
+      ]
+    },
+    "section.co-design": {
+      "id": "section.co-design",
+      "layer": "section",
+      "contractFile": "sections/co-design.json",
+      "settableFields": [
+        "body",
+        "heading"
+      ]
+    },
+    "section.contact-frame": {
+      "id": "section.contact-frame",
+      "layer": "section",
+      "contractFile": "sections/contact-frame.json",
+      "settableFields": [
+        "fields",
+        "submitLabel",
+        "toAddress"
+      ]
+    },
+    "section.execution-stack": {
+      "id": "section.execution-stack",
+      "layer": "section",
+      "contractFile": "sections/execution-stack.json",
+      "settableFields": [
+        "body",
+        "heading"
+      ]
+    },
+    "section.faq": {
+      "id": "section.faq",
+      "layer": "section",
+      "contractFile": "sections/faq.json",
+      "settableFields": [
+        "items",
+        "title"
+      ]
+    },
+    "section.framed-screenshot": {
+      "id": "section.framed-screenshot",
+      "layer": "section",
+      "contractFile": "sections/framed-screenshot.json",
+      "settableFields": [
+        "alt"
+      ],
+      "assetRefKeys": [
+        "screenshot"
+      ]
+    },
+    "section.full-stack": {
+      "id": "section.full-stack",
+      "layer": "section",
+      "contractFile": "sections/full-stack.json",
+      "settableFields": [
+        "body",
+        "heading"
+      ]
+    },
+    "section.hero-chat-mac": {
+      "id": "section.hero-chat-mac",
+      "layer": "section",
+      "contractFile": "sections/hero-chat-mac.json",
+      "settableFields": [
+        "body",
+        "downloadLabel",
+        "families",
+        "headline"
+      ],
+      "assetRefKeys": [
+        "appIcon",
+        "backdrop"
+      ]
+    },
+    "section.hero-home": {
+      "id": "section.hero-home",
+      "layer": "section",
+      "contractFile": "sections/hero-home.json",
+      "settableFields": [
+        "headline",
+        "subhead"
+      ]
+    },
+    "section.hero-product": {
+      "id": "section.hero-product",
+      "layer": "section",
+      "contractFile": "sections/hero-product.json",
+      "settableFields": [
+        "body",
+        "ctaLabel",
+        "eyebrow",
+        "terminalCaption",
+        "terminalLines",
+        "title"
+      ],
+      "assetRefKeys": [
+        "backdrop"
+      ]
+    },
+    "section.legal-body": {
+      "id": "section.legal-body",
+      "layer": "section",
+      "contractFile": "sections/legal-body.json",
+      "settableFields": [
+        "disclosure",
+        "sections",
+        "title"
+      ]
+    },
+    "section.metrics-chart-panel": {
+      "id": "section.metrics-chart-panel",
+      "layer": "section",
+      "contractFile": "sections/metrics-chart-panel.json",
+      "settableFields": [
+        "note",
+        "rows",
+        "title",
+        "unit"
+      ]
+    },
+    "section.metrics-header": {
+      "id": "section.metrics-header",
+      "layer": "section",
+      "contractFile": "sections/metrics-header.json",
+      "settableFields": [
+        "caption",
+        "heading",
+        "lead"
+      ]
+    },
+    "section.metrics-how-we-measure": {
+      "id": "section.metrics-how-we-measure",
+      "layer": "section",
+      "contractFile": "sections/metrics-how-we-measure.json",
+      "settableFields": [
+        "paragraphs",
+        "title"
+      ]
+    },
+    "section.metrics-quality-scatter": {
+      "id": "section.metrics-quality-scatter",
+      "layer": "section",
+      "contractFile": "sections/metrics-quality-scatter.json",
+      "settableFields": [
+        "body",
+        "title"
+      ]
+    },
+    "section.metrics-sidebar-nav": {
+      "id": "section.metrics-sidebar-nav",
+      "layer": "section",
+      "contractFile": "sections/metrics-sidebar-nav.json",
+      "settableFields": [
+        "items"
+      ]
+    },
+    "section.model-cards": {
+      "id": "section.model-cards",
+      "layer": "section",
+      "contractFile": "sections/model-cards.json",
+      "settableFields": [
+        "cards",
+        "title"
+      ],
+      "assetRefKeys": [
+        "mark"
+      ]
+    },
+    "section.model-family-list": {
+      "id": "section.model-family-list",
+      "layer": "section",
+      "contractFile": "sections/model-family-list.json",
+      "settableFields": [
+        "families"
+      ],
+      "assetRefKeys": [
+        "familyLogo"
+      ]
+    },
+    "section.notfound-body": {
+      "id": "section.notfound-body",
+      "layer": "section",
+      "contractFile": "sections/notfound-body.json",
+      "settableFields": [
+        "body",
+        "ctaLabel",
+        "heading"
+      ]
+    },
+    "section.page-header-centered": {
+      "id": "section.page-header-centered",
+      "layer": "section",
+      "contractFile": "sections/page-header-centered.json",
+      "settableFields": [
+        "eyebrow",
+        "heading"
+      ]
+    },
+    "section.page-header-simple": {
+      "id": "section.page-header-simple",
+      "layer": "section",
+      "contractFile": "sections/page-header-simple.json",
+      "settableFields": [
+        "heading"
+      ]
+    },
+    "section.perfect-for": {
+      "id": "section.perfect-for",
+      "layer": "section",
+      "contractFile": "sections/perfect-for.json",
+      "settableFields": [
+        "cards",
+        "title"
+      ],
+      "assetRefKeys": [
+        "cardIcon"
+      ]
+    },
+    "section.runtime-features": {
+      "id": "section.runtime-features",
+      "layer": "section",
+      "contractFile": "sections/runtime-features.json",
+      "settableFields": [
+        "features",
+        "heading"
+      ],
+      "assetRefKeys": [
+        "backdrop"
+      ]
+    },
+    "section.runtime-install-matrix": {
+      "id": "section.runtime-install-matrix",
+      "layer": "section",
+      "contractFile": "sections/runtime-install-matrix.json",
+      "settableFields": [
+        "heading",
+        "promises",
+        "rows"
+      ],
+      "assetRefKeys": [
+        "languageMark"
+      ]
+    },
+    "section.runtime-install-steps": {
+      "id": "section.runtime-install-steps",
+      "layer": "section",
+      "contractFile": "sections/runtime-install-steps.json",
+      "settableFields": [
+        "frameworks",
+        "heading",
+        "steps"
+      ],
+      "assetRefKeys": [
+        "languageMark"
+      ]
+    },
+    "section.shell-footer": {
+      "id": "section.shell-footer",
+      "layer": "section",
+      "contractFile": "sections/shell-footer.json",
+      "settableFields": [
+        "columns"
+      ]
+    },
+    "section.shell-navbar": {
+      "id": "section.shell-navbar",
+      "layer": "section",
+      "contractFile": "sections/shell-navbar.json",
+      "settableFields": [
+        "companyItems",
+        "directLinks",
+        "githubStarCount",
+        "logoLabel",
+        "productItems"
+      ]
+    },
+    "section.speed": {
+      "id": "section.speed",
+      "layer": "section",
+      "contractFile": "sections/speed.json",
+      "settableFields": [
+        "body",
+        "heading"
+      ]
+    },
+    "section.toolkit-convert-cards": {
+      "id": "section.toolkit-convert-cards",
+      "layer": "section",
+      "contractFile": "sections/toolkit-convert-cards.json",
+      "settableFields": [
+        "cards",
+        "customLayerPanel"
+      ],
+      "assetRefKeys": [
+        "cardBackdrop"
+      ]
+    },
+    "section.toolkit-pipeline": {
+      "id": "section.toolkit-pipeline",
+      "layer": "section",
+      "contractFile": "sections/toolkit-pipeline.json",
+      "settableFields": [
+        "cards",
+        "heading"
+      ],
+      "assetRefKeys": [
+        "cardIcon"
+      ]
+    }
+  }
+}

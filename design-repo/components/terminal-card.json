@@ -1,0 +1,20 @@
+{
+  "id": "component.terminal-card",
+  "layer": "component",
+  "purpose": "White macOS-style terminal window: traffic lights + centered mono caption in the header, monospace body lines with tone-based coloring (ink/accent/muted/caret), optional footer slot.",
+  "citation": "src/components/Shared.jsx:96-121 (TerminalCard)",
+  "composesPrimitives": [
+    "traffic-lights",
+    "terminal-caret"
+  ],
+  "props": {
+    "caption": {
+      "type": "string",
+      "maxWords": 6
+    },
+    "lines": {
+      "type": "array",
+      "maxItems": 24
+    }
+  }
+}

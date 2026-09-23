@@ -1,0 +1,69 @@
+{
+  "$description": "Rhythm/adjacency/position rules that JSON Schema cannot express. Each rule has severity 'error' (hard failure, enforced identically in schema/semantic_validate.py) or 'warn' (non-fatal notice). Whenever a rule here changes, schema/semantic_validate.py's matching check must be updated in the same pass — see MASTER-GUIDE.md §3.8/3.18.",
+  "rules": [
+    {
+      "id": "SHELL_BOUNDARIES",
+      "severity": "error",
+      "description": "Every PageSpec's first node must be section.shell-navbar and its last node must be section.shell-footer. No exceptions — every real route renders inside the single shared <Layout> (src/components/Layout.jsx), which always mounts Navbar first and Footer last, including the 404 catch-all.",
+      "citation": "src/components/Layout.jsx:12-20",
+      "exception": "None."
+    },
+    {
+      "id": "ONE_PER_PAGE",
+      "severity": "error",
+      "description": "A section whose contract sets constraints.onePerPage:true may appear at most once in a PageSpec's nodes array.",
+      "exception": "None — no section in this repo is marked onePerPage:true while genuinely repeating on any real page."
+    },
+    {
+      "id": "ROUTE_RESTRICTION",
+      "severity": "error",
+      "description": "A section whose contract carries a '<name>RouteOnly' constraint key (e.g. homeRouteOnly, toolkitRouteOnly, runtimeRouteOnly, chatMacRouteOnly, interestedRouteOnly, localModelsRouteOnly, metricsRouteOnly, aboutRouteOnly, careersRouteOnly, blogIndexRouteOnly, blogPostRouteOnly, legalRouteOnly, notFoundRouteOnly) may only be used inside a PageSpec whose `route` matches the template(s) that constraint names.",
+      "exception": "None — every *RouteOnly section in sections/*.json was measured on exactly one real page shape and has no cross-template reuse in the source."
+    },
+    {
+      "id": "TEMPLATE_NODE_MATCH",
+      "severity": "error",
+      "description": "A PageSpec's `nodes[]` (in order, comparing required sections) must match its declared `template`'s own required node sequence from templates/templates.json. A PageSpec may omit an optional/repeatable node's extra repeats but may never contradict, reorder, add, or drop a required section relative to its declared template.",
+      "citation": "templates/templates.json — the single most repeated bug class across prior design-repo builds is a validator that checks nodes[] in isolation without cross-referencing this field (MASTER-GUIDE.md §3.3).",
+      "exception": "None."
+    },
+    {
+      "id": "MUST_BE_FIRST",
+      "severity": "error",
+      "description": "A section whose contract sets constraints.mustBeFirst:true must be the node immediately after section.shell-navbar.",
+      "exception": "None — exactly one such section exists per template (hero-home, hero-product, hero-chat-mac, page-header-simple, page-header-centered, metrics-header, about-hero, blog-header, blog-post-article, legal-body, notfound-body), so there is no hero-less template in this repo that would need an exemption."
+    },
+    {
+      "id": "MUST_BE_LAST_BEFORE_FOOTER",
+      "severity": "error",
+      "description": "A section whose contract sets constraints.mustBeLastBeforeFooter:true must be the node immediately before section.shell-footer.",
+      "exception": "None."
+    },
+    {
+      "id": "REDUCED_MOTION_FALLBACK_REQUIRED",
+      "severity": "error",
+      "description": "Every node carrying a non-'none' motion pattern must include a non-empty motion.reducedMotionFallback string.",
+      "citation": "src/index.css:80-86 (the project's one global @media (prefers-reduced-motion: reduce) rule, which every motion pattern in tokens/00-foundation/motion.json is checked to respect)",
+      "exception": "None."
+    },
+    {
+      "id": "MAXWORDS_BUDGET",
+      "severity": "error",
+      "description": "Every text-bearing content field with a maxWords budget in its section contract must not exceed that budget in a given PageSpec instance.",
+      "exception": "None."
+    },
+    {
+      "id": "FAQ_ITEM_COUNT_STYLE",
+      "severity": "warn",
+      "description": "A faq section with more than 6 items is schema-valid (max 8) but exceeds what every real FAQ on this site actually ships (both /inference-runtime and /conversion-optimization-toolkit use exactly 6 FAQ items). Flag as a non-fatal style notice rather than a hard failure, since a 7th or 8th item is plausible future content, not a structural violation.",
+      "citation": "src/pages/ConversionToolkit.jsx FAQ (6 items), src/pages/InferenceRuntime.jsx FAQ (6 items)",
+      "exception": "None — this is a warn, not an error, precisely so a legitimate 7th/8th item is never blocked."
+    },
+    {
+      "id": "NO_CONSECUTIVE_PERFECT_FOR",
+      "severity": "warn",
+      "description": "section.perfect-for should not appear back-to-back with another instance of itself in the same PageSpec (it is already onePerPage:true, which makes this practically unreachable today, but the rhythm rule is recorded for a future template that might legitimately combine two persona sections).",
+      "exception": "None currently in force."
+    }
+  ]
+}

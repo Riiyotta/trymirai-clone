@@ -1,0 +1,29 @@
+{
+  "id": "primitive.icon",
+  "layer": "primitive",
+  "purpose": "Inline SVG icon wrapper. All icons in this project are hand-authored inline SVGs (no icon font/sprite sheet).",
+  "citation": "src/components/Icons.jsx:1-79",
+  "props": {
+    "name": {
+      "type": "string",
+      "enum": [
+        "chevron",
+        "engine",
+        "convert",
+        "mac",
+        "cli",
+        "android",
+        "about",
+        "mail",
+        "x-logo",
+        "in-logo",
+        "github",
+        "star",
+        "menu",
+        "close",
+        "arrow-right",
+        "check"
+      ]
+    }
+  }
+}

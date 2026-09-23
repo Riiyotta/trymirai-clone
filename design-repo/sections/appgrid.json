@@ -1,0 +1,41 @@
+{
+  "id": "section.appgrid",
+  "layer": "section",
+  "purpose": "'One interface' section: convergence-wires illustration showing model/runtime/device unifying into one app grid.",
+  "measuredFrom": "src/components/AppGrid.jsx:1-154",
+  "content": {
+    "heading": {
+      "type": "string",
+      "maxWords": 10,
+      "required": true
+    },
+    "body": {
+      "type": "string",
+      "maxWords": 40,
+      "required": false
+    }
+  },
+  "constraints": {
+    "onePerPage": true,
+    "homeRouteOnly": true
+  },
+  "motion": {
+    "pattern": "scroll-reveal",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": false,
+    "breakpoints": {
+      "md-768": {
+        "layoutChange": "grid-column-count-change",
+        "description": "Each feature block goes from a single stacked column to a 2-column grid with a shared border; the image tile reorders from last to first (order-last -> order-none).",
+        "citation": "src/components/AppGrid.jsx:115-116"
+      },
+      "lg-1024": {
+        "layoutChange": "spacing-shift",
+        "description": "Text-column left/right padding increases from 24px (md:pl-6) to 40px (lg:pl-10).",
+        "citation": "src/components/AppGrid.jsx:119"
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "id": "section.closing-home",
+  "layer": "section",
+  "purpose": "Homepage closing statement: 240px orbital mark + serif headline + supporting line.",
+  "measuredFrom": "src/components/Closing.jsx:1-57",
+  "content": {
+    "headline": {
+      "type": "string",
+      "maxWords": 10,
+      "required": true
+    },
+    "body": {
+      "type": "string",
+      "maxWords": 30,
+      "required": true
+    }
+  },
+  "constraints": {
+    "onePerPage": true,
+    "mustBeLastBeforeFooter": true,
+    "homeRouteOnly": true
+  },
+  "motion": {
+    "pattern": "canvas-orbital-mark",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": false,
+    "breakpoints": {
+      "md-768": {
+        "layoutChange": "width-constraint-change",
+        "description": "Avatar grows 132px to 200px and heading/body max-width grow (heading 270px->520px, body 283px->552px).",
+        "citation": "src/components/Closing.jsx:43,46,49"
+      },
+      "lg-1024": {
+        "layoutChange": "spacing-shift",
+        "description": "Avatar grows further to 240px while top padding decreases slightly (pt-10 -> lg:pt-8).",
+        "citation": "src/components/Closing.jsx:41,43"
+      }
+    }
+  },
+  "assetRoles": {
+    "mark": "brand-mark-placeholder"
+  }
+}

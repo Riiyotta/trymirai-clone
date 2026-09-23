@@ -1,0 +1,49 @@
+{
+  "$description": "Font families and the measured type scale (.type-* utility classes), taken verbatim from src/index.css.",
+  "measuredFrom": "src/index.css:1-131",
+  "fontFamily": {
+    "sans": { "stack": ["Inter", "Inter Fallback", "system-ui", "sans-serif"], "usage": "UI / body text", "citation": "tailwind.config.js:47" },
+    "serif": { "stack": ["Fraunces", "Fraunces Fallback", "Times New Roman", "serif"], "usage": "headings", "citation": "tailwind.config.js:48" },
+    "mono": { "stack": ["geistMono", "SF Mono", "Menlo", "Consolas", "monospace"], "usage": "terminal / code panels", "citation": "tailwind.config.js:49" }
+  },
+  "variableFontAxes": {
+    "fraunces": {
+      "note": "Fraunces is a variable font; optical size (opsz) axis changes letterform width, not just optical detail. Wrong opsz measurably widens the same string.",
+      "citation": "src/index.css:26-32, README.md 'Design tokens' section",
+      "presets": {
+        "opsz72-heading": "'SOFT' 56, 'WONK' 0, 'opsz' 72, 'wght' 350",
+        "opsz80-heading": "'SOFT' 56, 'WONK' 0, 'opsz' 80, 'wght' 350",
+        "opsz72-wonk1": "'SOFT' 56, 'WONK' 1, 'opsz' 72, 'wght' 350",
+        "opsz80-wonk1": "'SOFT' 56, 'WONK' 1, 'opsz' 80, 'wght' 350"
+      }
+    },
+    "inter": {
+      "note": "Inter variable font weight/opsz set per class, e.g. 'opsz' 18-20, 'wght' 400-500.",
+      "citation": "src/index.css:96-131"
+    }
+  },
+  "typeScale": {
+    "type-h1": { "citation": "src/index.css:98", "mobile": "32px/38.4px", "md": "40px/48px", "lg": "48px/60px", "weight": "normal", "family": "serif" },
+    "type-h1-page": { "citation": "src/index.css:100", "mobile": "32px/38.4px", "md": "40px/48px", "lg": "48px/57.6px", "weight": "normal", "family": "serif", "note": "inner pages run the 48px head at 1.2 line-height, not home's 1.25" },
+    "type-h2": { "citation": "src/index.css:102-103", "mobile": "32px/38.4px", "md": "40px/48px", "family": "serif" },
+    "type-h2-sm": { "citation": "src/index.css:104-105", "size": "32px/38.4px", "family": "serif" },
+    "type-h2-lg": { "citation": "src/index.css:106-107", "mobile": "32px/38.4px", "md": "40px/60px", "family": "serif" },
+    "type-job-section": { "citation": "src/index.css:108-109", "size": "28px/36.4px", "family": "serif" },
+    "type-careers-close": { "citation": "src/index.css:110-112", "mobile": "28px/39.2px", "md": "40px/56px", "family": "serif" },
+    "type-h3": { "citation": "src/index.css:113-114", "size": "24px/31.2px", "family": "serif" },
+    "type-body-lg": { "citation": "src/index.css:115-116", "size": "17px/27.2px", "color": "ink-soft" },
+    "type-body": { "citation": "src/index.css:117-118", "size": "15px/25.5px", "color": "ink-soft" },
+    "type-caption": { "citation": "src/index.css:119-120", "size": "13px/20.8px", "color": "ink-muted" },
+    "nav-link": { "citation": "src/index.css:121", "size": "14px/18.2px", "weight": "medium", "letterSpacing": "nav (-0.14px)" },
+    "product-hero-title": { "citation": "src/index.css:124-129", "mobile": "28px/33.6px", "min810": "48px/57.6px", "family": "serif" },
+    "type-section-title": { "citation": "src/index.css:130-133", "mobile": "28px/39.2px", "min810": "40px/52px", "family": "serif" },
+    "type-card-title": { "citation": "src/index.css:134-137", "size": "24px/31.2px", "family": "serif" },
+    "type-routing-title": { "citation": "src/index.css:138-141", "mobile": "24px/31.2px", "min810": "32px/38.4px", "family": "serif" },
+    "type-eyebrow": { "citation": "src/index.css:142-145", "mobile": "15px/25.5px", "min810": "17px/27.2px" },
+    "type-pbody": { "citation": "src/index.css:146-149", "mobile": "15px/25.5px", "min810": "17px/27.2px" },
+    "type-row": { "citation": "src/index.css:150", "mobile": "15px/25.5px", "min810": "17px/27.2px" }
+  },
+  "letterSpacing": {
+    "nav": { "value": "-0.14px", "citation": "tailwind.config.js:51" }
+  }
+}

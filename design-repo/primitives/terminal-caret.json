@@ -1,0 +1,8 @@
+{
+  "id": "primitive.terminal-caret",
+  "layer": "primitive",
+  "purpose": "Blinking terminal cursor block, JS-toggled opacity (not a CSS animation).",
+  "citation": "src/components/Caret.jsx",
+  "motion": "terminal-caret-blink",
+  "props": {}
+}

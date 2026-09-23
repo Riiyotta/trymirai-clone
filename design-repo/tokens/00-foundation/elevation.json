@@ -1,0 +1,13 @@
+{
+  "$description": "Shadow values actually used. This project is overwhelmingly a hairline-border, flat-elevation design system — only one real box-shadow use was found.",
+  "measuredFrom": "grep -n 'shadow' src/**/*.jsx src/index.css",
+  "shadows": {
+    "browser-window": { "value": "shadow-2xl (Tailwind default)", "citation": "src/pages/InferenceRuntime.jsx browser-mock window", "usage": "the one floating browser-chrome window on /inference-runtime" },
+    "bench-tooltip": {
+      "value": "rgba(10,13,18,0.04) 0 2px 2px -1px, rgba(10,13,18,0.03) 0 4px 6px -2px, rgba(10,13,18,0.08) 0 12px 16px -4px",
+      "citation": "src/components/Shared.jsx BarTip inline style",
+      "usage": "benchmark bar hover tooltip, measured against the original: 259x84, no entry animation"
+    }
+  },
+  "note": "Everything else in the design system uses a 0.5px hairline border for separation, not elevation/shadow — do not invent card shadows for beige/hairline card patterns."
+}

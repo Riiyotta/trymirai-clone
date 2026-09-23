@@ -1,0 +1,12 @@
+{
+  "$description": "Layout/grid tokens actually used for multi-column section grids.",
+  "grids": {
+    "three-up-cards": { "columns": { "mobile": 1, "min810": 3 }, "gap": { "mobile": "12px", "min810": "24px" }, "citation": "src/components/Shared.jsx PerfectFor" },
+    "two-up-toolkit-cards": { "columns": { "mobile": 1, "min1200": 2 }, "gap": { "mobile": "0px", "min810": "24px" }, "citation": "src/pages/ConversionToolkit.jsx BIG_CARDS grid" },
+    "pipeline-three-up": { "columns": { "mobile": 1, "min1200": 3 }, "gap": "24px", "citation": "src/pages/ConversionToolkit.jsx PIPELINE grid" },
+    "model-cards-grid": { "columns": { "mobile": 1, "min1200": 3 }, "gap": { "x": "10px", "y": "12px" }, "citation": "src/components/Shared.jsx ModelCards" },
+    "backer-grid": { "columns": { "mobile": 2, "md": 4 }, "gap": "10px", "citation": "src/pages/AboutUs.jsx BACKERS grid" },
+    "careers-about-why": { "columns": { "mobile": 1, "lg": 2 }, "gap": "32px", "citation": "src/pages/Careers.jsx About/Why grid" },
+    "features-two-up": { "columns": { "mobile": 1, "min1200": 2 }, "citation": "src/pages/InferenceRuntime.jsx FEATURES + photo plate grid" }
+  }
+}

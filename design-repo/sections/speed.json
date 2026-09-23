@@ -1,0 +1,41 @@
+{
+  "id": "section.speed",
+  "layer": "section",
+  "purpose": "Dark full-bleed 'speed' section with a tokens/sec chart illustration.",
+  "measuredFrom": "src/components/Speed.jsx:1-146",
+  "content": {
+    "heading": {
+      "type": "string",
+      "maxWords": 10,
+      "required": true
+    },
+    "body": {
+      "type": "string",
+      "maxWords": 40,
+      "required": false
+    }
+  },
+  "constraints": {
+    "onePerPage": true,
+    "homeRouteOnly": true
+  },
+  "motion": {
+    "pattern": "scroll-reveal",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": false,
+    "breakpoints": {
+      "md-768": {
+        "layoutChange": "spacing-shift",
+        "description": "Benchmark strip height grows from 387px to 454px and switches from a wide horizontally-centered overflow track to a full-width, non-offset track.",
+        "citation": "src/components/Speed.jsx:124-125"
+      },
+      "lg-1024": {
+        "layoutChange": "grid-column-count-change",
+        "description": "The three stat columns stack in a single column below 1024px and become a fixed 3-column grid (333px each) at lg.",
+        "citation": "src/components/Speed.jsx:131"
+      }
+    }
+  }
+}

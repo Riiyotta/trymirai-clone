@@ -1,0 +1,45 @@
+{
+  "id": "section.careers-closing-cta",
+  "layer": "section",
+  "purpose": "Closing statement: orbital mark, serif heading, supporting line, and a full-width dark CTA button.",
+  "measuredFrom": "src/pages/Careers.jsx:92-114",
+  "content": {
+    "headline": {
+      "type": "string",
+      "maxWords": 10,
+      "required": true
+    },
+    "body": {
+      "type": "string",
+      "maxWords": 20,
+      "required": true
+    },
+    "ctaLabel": {
+      "type": "string",
+      "maxWords": 4,
+      "required": true
+    }
+  },
+  "constraints": {
+    "onePerPage": true,
+    "careersRouteOnly": true,
+    "mustBeLastBeforeFooter": true
+  },
+  "motion": {
+    "pattern": "canvas-orbital-mark",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": false,
+    "breakpoints": {
+      "md-768": {
+        "layoutChange": "alignment-shift",
+        "description": "Content switches from left-aligned to center-aligned, and the avatar image grows from 132px to 200px.",
+        "citation": "src/pages/Careers.jsx:102-103"
+      }
+    }
+  },
+  "assetRoles": {
+    "mark": "brand-mark-placeholder"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "id": "section.about-team-cards",
+  "layer": "section",
+  "purpose": "Two 302px beige team cards, generic circular avatar + role label + withheld-biography note.",
+  "measuredFrom": "src/pages/AboutUs.jsx:120-142",
+  "content": {
+    "members": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "required": true,
+      "itemFields": {
+        "role": {
+          "maxWords": 6
+        },
+        "note": {
+          "maxWords": 30
+        }
+      }
+    }
+  },
+  "constraints": {
+    "onePerPage": true,
+    "aboutRouteOnly": true
+  },
+  "motion": {
+    "pattern": "scroll-reveal",
+    "reducedMotionFallback": "opacity:1; transform:none; transition:none (global prefers-reduced-motion rule, src/index.css:80-86)"
+  },
+  "responsive": {
+    "noResponsiveChange": false,
+    "breakpoints": {
+      "nav-810": {
+        "layoutChange": "column-to-row",
+        "description": "Each team-member card's avatar+text stacks vertically below 810px and becomes a horizontal row (items centered) at 810px; card negative-margin is removed.",
+        "citation": "src/pages/AboutUs.jsx:95,101"
+      }
+    }
+  },
+  "assetRoles": {
+    "avatar": "generic-avatar-placeholder"
+  },
+  "notes": [
+    "Real founder names/photos/biographies are intentionally withheld in this clone \u2014 src/pages/AboutUs.jsx:127 comment: 'This clone keeps the card layout and leaves the people anonymous.' A generated PageSpec must not invent real-sounding founder names or biographical claims."
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "primitive.divider-hairline",
+  "layer": "primitive",
+  "purpose": "0.5px horizontal or vertical rule, the project's dominant separator (60+ occurrences), always border-[0.5px], never the Tailwind default 1px.",
+  "citation": "tokens/00-foundation/spacing.json hairlineWidths",
+  "props": {
+    "orientation": {
+      "type": "string",
+      "enum": [
+        "horizontal",
+        "vertical"
+      ]
+    }
+  }
+}

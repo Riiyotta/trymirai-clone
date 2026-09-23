@@ -1,0 +1,31 @@
+{
+  "id": "section.shell-footer",
+  "layer": "section",
+  "purpose": "Site footer: logo rail + three link columns (Main, Company, Links).",
+  "measuredFrom": "src/components/Footer.jsx:1-93",
+  "content": {
+    "columns": {
+      "type": "array",
+      "maxItems": 3,
+      "required": true
+    }
+  },
+  "constraints": {
+    "mustBeLast": true,
+    "onePerPage": true
+  },
+  "motion": {
+    "pattern": "none",
+    "reducedMotionFallback": "not applicable \u2014 src/components/Footer.jsx has no Reveal wrapper or animation, static content with hover-only link color transitions"
+  },
+  "responsive": {
+    "noResponsiveChange": false,
+    "breakpoints": {
+      "md-768": {
+        "layoutChange": "hidden-below-breakpoint",
+        "description": "The desktop footer row (66px utility bar + 318px column layout) is hidden below md and shown (flex) at md; a separate stacked mobile footer block is shown below md and hidden (md:hidden) at md.",
+        "citation": "src/components/Footer.jsx:35,52,76"
+      }
+    }
+  }
+}
