@@ -18,6 +18,15 @@ Runs, in order:
      real files on disk (not read back from the manifest itself) and compared.
   6. Version parity — registry.manifest.json's `allowlistVersion` matches
      tokens/llm/component-allowlist.json's own `allowlistVersion` field.
+  7. Route parity — templates/routes.json is regenerated fresh from
+     templates/templates.json and diffed against the file on disk (catches
+     hand-edited drift), every real route in src/App.jsx's <Routes> (when the
+     sibling source tree is present) is covered exactly once, and no route
+     maps to a nonexistent template.
+  8. Asset-role closure — every assetRole value permitted anywhere in
+     schema/pagespec.schema.json exists in assets/asset-roles.json (and vice
+     versa — no orphan catalogued role), and every catalogued role is either
+     actually used by a real section/example or explicitly marked `reserved`.
 
 This script only ever reads files inside design-repo/ itself (plus, best-effort and
 gracefully, the sibling source tree for citation checks) — never a hardcoded absolute
@@ -233,6 +242,122 @@ def check_6_version_parity(report, inject=None):
     )
 
 
+def check_7_route_parity(report, inject=None):
+    templates_obj = load_json("templates", "templates.json")["templates"]
+    routes_on_disk = load_json("templates", "routes.json")
+
+    # 7a. routes.json must be exactly what a fresh regeneration from
+    # templates.json would produce -- proves it's generated, not hand-edited.
+    regenerated = {}
+    for tid, tpl in templates_obj.items():
+        for route in tpl["routes"]:
+            regenerated[route] = tid
+
+    stated_routes = dict(routes_on_disk.get("routes", {}))
+    if inject == "routes_hand_edited_drift":
+        stated_routes["/a-route-nobody-added-to-templates-json"] = "home"
+
+    extra_in_file = sorted(set(stated_routes.keys()) - set(regenerated.keys()))
+    missing_from_file = sorted(set(regenerated.keys()) - set(stated_routes.keys()))
+    mismatched_target = sorted(r for r in stated_routes if r in regenerated and stated_routes[r] != regenerated[r])
+
+    report.check(
+        "7a. templates/routes.json matches a fresh regeneration from templates/templates.json",
+        not extra_in_file and not missing_from_file and not mismatched_target,
+        f"extra: {extra_in_file}; missing: {missing_from_file}; mismatched: {mismatched_target}",
+    )
+
+    # 7b. every route maps to a real template id (no orphan template-route mapping)
+    real_template_ids = set(templates_obj.keys())
+    orphan_mappings = sorted(r for r, t in stated_routes.items() if t not in real_template_ids)
+    if inject == "route_orphan_template":
+        orphan_mappings = orphan_mappings + ["/injected-orphan-route"]
+    report.check(
+        "7b. every route in routes.json maps to a real, existing template",
+        len(orphan_mappings) == 0,
+        f"routes mapping to a nonexistent template: {orphan_mappings}",
+    )
+
+    # 7c. every real clone route (src/App.jsx <Route path=...>) appears exactly
+    # once in routes.json -- degrades gracefully with no sibling source tree.
+    sibling_root = os.path.dirname(ROOT)
+    app_jsx = os.path.join(sibling_root, "src", "App.jsx")
+    if not os.path.exists(app_jsx):
+        report.warn("7c. every real clone route appears exactly once in routes.json",
+                     f"sibling source tree not found at {sibling_root} — skipped (degrades gracefully by design).")
+    else:
+        with open(app_jsx) as f:
+            app_text = f.read()
+        real_routes = re.findall(r'<Route\s+path="([^"]+)"', app_text)
+        counts = {r: real_routes.count(r) for r in set(real_routes)}
+        duplicated = sorted(r for r, n in counts.items() if n > 1)
+        missing_real_routes = sorted(set(real_routes) - set(stated_routes.keys()))
+        if inject == "route_duplicated_in_source":
+            duplicated = duplicated + ["/"]
+        report.check(
+            f"7c. all {len(set(real_routes))} real routes in src/App.jsx appear exactly once in routes.json",
+            len(duplicated) == 0 and len(missing_real_routes) == 0,
+            f"duplicated in source: {duplicated}; real routes missing from routes.json: {missing_real_routes}",
+        )
+
+
+def check_8_asset_role_closure(report, inject=None):
+    schema = load_json("schema", "pagespec.schema.json")
+    asset_roles = load_json("assets", "asset-roles.json")
+
+    def find_asset_role_enums(node, acc):
+        if isinstance(node, dict):
+            if isinstance(node.get("assetRole"), dict) and "enum" in node["assetRole"]:
+                acc.update(node["assetRole"]["enum"])
+            for v in node.values():
+                find_asset_role_enums(v, acc)
+        elif isinstance(node, list):
+            for v in node:
+                find_asset_role_enums(v, acc)
+
+    schema_roles = set()
+    find_asset_role_enums(schema, schema_roles)
+    catalogued_roles = set(asset_roles.get("roles", {}).keys())
+
+    if inject == "assetrole_schema_phantom":
+        schema_roles = schema_roles | {"injected-role-not-catalogued"}
+    if inject == "assetrole_catalog_orphan":
+        catalogued_roles = catalogued_roles | {"injected-catalogued-role-unused-anywhere"}
+
+    phantom = sorted(schema_roles - catalogued_roles)  # schema allows it, catalog doesn't define it
+    orphan = sorted(catalogued_roles - schema_roles)   # catalog defines it, schema never allows it
+
+    report.check(
+        "8a. every assetRole the schema permits exists in assets/asset-roles.json, and vice versa",
+        len(phantom) == 0 and len(orphan) == 0,
+        f"schema allows but not catalogued: {phantom}; catalogued but schema never allows: {orphan}",
+    )
+
+    # 8b. every catalogued role is either really used (sections/*.json,
+    # schema/example.pagespec.json) or explicitly marked reserved.
+    used_roles = set()
+    for fp in glob.glob(os.path.join(ROOT, "sections", "*.json")) + [os.path.join(ROOT, "schema", "example.pagespec.json")]:
+        text = open(fp).read()
+        for role in catalogued_roles:
+            if f'"{role}"' in text:
+                used_roles.add(role)
+
+    if inject == "assetrole_unused_unreserved":
+        asset_roles["roles"] = dict(asset_roles["roles"])
+        asset_roles["roles"]["injected-unused-role"] = {"description": "x"}
+        catalogued_roles = catalogued_roles | {"injected-unused-role"}
+
+    unaccounted = sorted(
+        r for r in catalogued_roles
+        if r not in used_roles and not asset_roles.get("roles", {}).get(r, {}).get("reserved")
+    )
+    report.check(
+        "8b. every catalogued assetRole is used by a real section/example, or explicitly marked reserved",
+        len(unaccounted) == 0,
+        f"neither used nor reserved: {unaccounted}",
+    )
+
+
 def run(inject=None):
     report = Report()
     check_1_schema(report, inject)
@@ -241,6 +366,8 @@ def run(inject=None):
     check_4_citations(report, inject)
     check_5_manifest_counts(report, inject)
     check_6_version_parity(report, inject)
+    check_7_route_parity(report, inject)
+    check_8_asset_role_closure(report, inject)
     ok = report.summary()
     return ok, report
 
@@ -262,5 +389,11 @@ if __name__ == "__main__":
 #   python3 verify_all.py --inject-drift=version_drift             # must FAIL
 #   python3 verify_all.py --inject-drift=schema_break_additional_properties  # must FAIL
 #   python3 verify_all.py --inject-drift=semantic_template_mismatch # must FAIL
+#   python3 verify_all.py --inject-drift=routes_hand_edited_drift   # must FAIL
+#   python3 verify_all.py --inject-drift=route_orphan_template      # must FAIL
+#   python3 verify_all.py --inject-drift=route_duplicated_in_source # must FAIL
+#   python3 verify_all.py --inject-drift=assetrole_schema_phantom   # must FAIL
+#   python3 verify_all.py --inject-drift=assetrole_catalog_orphan   # must FAIL
+#   python3 verify_all.py --inject-drift=assetrole_unused_unreserved # must FAIL
 #   python3 verify_all.py                                          # must PASS (real repo, unmodified)
 # ============================================================================

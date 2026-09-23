@@ -1,0 +1,21 @@
+{
+  "$description": "Machine-readable route -> template registry, generated deterministically from templates/templates.json (the single canonical source -- do not hand-edit this file; regenerate it if templates.json's routes[] fields change). Every key is a real route from src/App.jsx's <Routes>; '*' represents the catch-all not-found route.",
+  "generatedFrom": "templates/templates.json",
+  "routeCount": 14,
+  "routes": {
+    "/": "home",
+    "/conversion-optimization-toolkit": "product-toolkit",
+    "/inference-runtime": "product-runtime",
+    "/chat-for-mac": "chat-mac",
+    "/i-am-interested": "contact",
+    "/local-models": "local-models",
+    "/metrics": "metrics",
+    "/about-us": "about",
+    "/careers": "careers",
+    "/blog": "blog-index",
+    "/blog/:slug": "blog-post",
+    "/privacy-policy": "legal",
+    "/terms-of-use": "legal",
+    "*": "not-found"
+  }
+}

@@ -45,7 +45,7 @@
   },
   "assetInventory": {
     "citedFrom": "public/ directory listing (~40 files), cross-referenced against every <img>/background usage in src/**/*.jsx",
-    "realCompanyCaveat": "This project reference-clones a real, live company (Mirai Labs' marketing site) — see README.md 'Content, branding and design are Mirai Labs'. This is a local reference build.' The wordmark and orbital marks are explicitly documented as neutral placeholders, not real brand art (per the source project's own README.md, 'Where this differs from the original'). See tokens/llm/asset-roles.json for the full per-asset licensing/generation guidance this fact drives."
+    "realCompanyCaveat": "This project reference-clones a real, live company (Mirai Labs' marketing site) — see README.md 'Content, branding and design are Mirai Labs'. This is a local reference build.' The wordmark and orbital marks are explicitly documented as neutral placeholders, not real brand art (per the source project's own README.md, 'Where this differs from the original'). See assets/asset-roles.json for the full per-asset licensing/generation guidance this fact drives."
   },
   "responsiveFieldEvidence": {
     "citedFrom": "tokens/00-foundation/breakpoint.json (closed real breakpoint set), grep -o \"min-\\[[0-9]*px\\]|md:|lg:|sm:|hidden\" across src/pages/*.jsx and src/components/*.jsx per section's own measuredFrom range",

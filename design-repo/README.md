@@ -10,10 +10,43 @@ for the full citation ledger.
 **This is a reference clone of a real, live company.** Content, branding and
 design belong to Mirai Labs. The wordmark and the closing/careers orbital
 marks are deliberately neutral placeholders, not real Mirai Labs brand art —
-see `tokens/llm/asset-roles.json` for the full, closed asset-role registry and
+see `assets/asset-roles.json` for the full, closed asset-role registry and
 its AI-generation / licensing guidance, which explicitly bans reproducing real
 Mirai Labs branding, real investor/team logos, or real third-party company
 logos in generated output.
+
+## AI / N0 Consumption
+
+Standard contract locations for a generator/RAG pipeline (all paths relative
+to `design-repo/`, also mirrored as named fields on `registry.manifest.json`
+for direct lookup — `pageSpecSchema`, `templates`, `routes`, `tokenCatalog`,
+`tokenPolicy`, `componentAllowlist`, `compatibilityGraph`, `assetContract`,
+`motionSpec`):
+
+| Contract | Location |
+|---|---|
+| PageSpec schema | `schema/pagespec.schema.json` |
+| Template registry | `templates/templates.json` |
+| Route registry | `templates/routes.json` (generated from `templates/templates.json` — never hand-edit) |
+| Token catalog | `tokens/llm/token-catalog.json` |
+| Token policy | `tokens/llm/token-policy.json` |
+| Component allowlist | `tokens/llm/component-allowlist.json` |
+| Compatibility graph | `compatibility/graph.json` |
+| Asset contract | `assets/asset-roles.json` |
+| Motion spec | `animation/motion-spec.json` |
+
+Foundation-layer design tokens (raw color/type/spacing/breakpoint/elevation
+values) stay under `tokens/00-foundation/` — they are not AI-facing contracts
+on their own, only inputs the token catalog/policy resolve through.
+`tokens/00-foundation/motion.json` is a redirect stub only (see
+`animation/motion-spec.json`'s own header) — nothing duplicates its content.
+
+Run `python3 extraction/verify_all.py` for the single command that verifies
+every contract above, including two drift-proofed parity checks: every route
+in `templates/routes.json` maps to a real template with no orphans and no
+hand-edited drift from `templates/templates.json` (check 7), and every
+`assetRole` the schema permits exists in `assets/asset-roles.json` and is
+either used or explicitly marked `reserved` (check 8).
 
 ## Status
 

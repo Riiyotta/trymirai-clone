@@ -43,7 +43,7 @@
       "id": "REDUCED_MOTION_FALLBACK_REQUIRED",
       "severity": "error",
       "description": "Every node carrying a non-'none' motion pattern must include a non-empty motion.reducedMotionFallback string.",
-      "citation": "src/index.css:80-86 (the project's one global @media (prefers-reduced-motion: reduce) rule, which every motion pattern in tokens/00-foundation/motion.json is checked to respect)",
+      "citation": "src/index.css:80-86 (the project's one global @media (prefers-reduced-motion: reduce) rule, which every motion pattern in animation/motion-spec.json is checked to respect)",
       "exception": "None."
     },
     {

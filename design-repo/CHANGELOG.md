@@ -1,5 +1,42 @@
 # Changelog
 
+## 1.2.0 — standardize contract locations, add route/asset-role parity checks
+
+Reorganizes three contracts into standard, workspace-convention locations
+and adds two new drift-proofed `verify_all.py` checks:
+
+- **`templates/routes.json`** (new) — a route → template registry generated
+  deterministically from `templates/templates.json` (never hand-edit; check
+  7a regenerates it fresh and diffs against disk on every run).
+- **`assets/asset-roles.json`** (moved from `tokens/llm/asset-roles.json`) —
+  a semantic asset contract, not a design token. Every live reference across
+  `registry.manifest.json`, `README.md`, `extraction/measured-values.json`,
+  and `compatibility/graph.json` updated to the new path (`CHANGELOG.md`'s
+  historical 1.0.0 entry, describing that version's state, is unchanged).
+- **`animation/motion-spec.json`** (new canonical location, moved from
+  `tokens/00-foundation/motion.json`) — reusable, AI-facing motion patterns.
+  `tokens/00-foundation/motion.json` is now a redirect stub with no
+  duplicated content; foundation-layer timing/easing atoms would stay under
+  `tokens/` if this project ever had any separate from the pattern
+  definitions (it doesn't — the whole file was pattern-level content).
+- `registry.manifest.json` gained named contract fields (`pageSpecSchema`,
+  `templates`, `routes`, `tokenCatalog`, `tokenPolicy`, `componentAllowlist`,
+  `compatibilityGraph`, `assetContract`, `motionSpec`) alongside the existing
+  `entryPoints` list, and `templates/routes.json` was added to `entryPoints`.
+- `extraction/verify_all.py` gained checks 7 (route parity: routes.json
+  regenerates identically from templates.json, every route maps to a real
+  template, every real `src/App.jsx` route appears exactly once) and 8
+  (asset-role closure: every schema-permitted assetRole is catalogued and
+  vice versa, every catalogued role is used or explicitly `reserved` —
+  `favicon-app-icon` was the one real case needing that marker: real files,
+  real citation, but never selected as a section's media role since
+  favicons are static site metadata, not composable page content). Both
+  proven via the file's own established `--inject-drift=` self-test
+  convention: 13 injection scenarios, each independently confirmed to fail,
+  then confirmed the real repo passes 11/11 clean.
+- `README.md` gained an "AI / N0 Consumption" section documenting every
+  standard contract location.
+
 ## 1.1.0 — structured `responsive` field (Situation B: targeted fix pass)
 
 Closes the one flagged gap from the prior independent re-verification: this

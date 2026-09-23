@@ -3,7 +3,7 @@
   "enforced": {
     "color": "A section's `content` fields never carry a raw color value; sections reference semantic roles only, which schema/semantic_validate.py checks by rejecting any hex-looking string in a content field.",
     "assetRole": "Closed enum, schema-enforced (see tokens/llm/component-allowlist.json and schema/pagespec.schema.json definitions.assetRole).",
-    "motion": "Closed set of pattern ids from tokens/00-foundation/motion.json, schema-enforced via definitions.motion."
+    "motion": "Closed set of pattern ids from animation/motion-spec.json, schema-enforced via definitions.motion."
   },
   "conventionOnly": {
     "fontSize": "The .type-* utility classes in tokens/00-foundation/typography.json are a documentation-only scale; nothing in the PageSpec schema currently carries a raw pixel size for text, so there is nothing to validate at the PageSpec layer. If a future PageSpec field allows raw typography overrides, this policy must gain an enforced entry and a matching schema/validator check.",
