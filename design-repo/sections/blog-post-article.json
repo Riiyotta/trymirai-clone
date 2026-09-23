@@ -49,6 +49,6 @@
     "cover": "blog-cover-image"
   },
   "notes": [
-    "The real article body copy on trymirai.com is Mirai Labs' own editorial writing and is deliberately not reproduced \u2014 src/pages/Blog.jsx:76-77. A generated PageSpec must preserve this disclosure or an equivalent true statement rather than fabricating full article prose."
+    "The real article body copy on Mirai Labs' live marketing site is Mirai Labs' own editorial writing and is deliberately not reproduced \u2014 src/pages/Blog.jsx:76-77. A generated PageSpec must preserve this disclosure or an equivalent true statement rather than fabricating full article prose."
   ]
 }

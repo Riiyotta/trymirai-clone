@@ -182,7 +182,7 @@
           "repeatable": false
         }
       ],
-      "knownGap": "PROCESS.md \u00a711: this route runs at 60% of the original's measured page height and has only 8 of the original live site's 10 sections. The node list above reflects what is actually BUILT in this repo, not the live trymirai.com \u2014 do not treat this template as 100% parity with the original."
+      "knownGap": "Per the source project's own README.md ('Page fidelity at 1440px'): this route runs at 60% of the original's measured page height and has only 8 of the original live site's 10 sections. The node list above reflects what is actually BUILT in this repo, not Mirai Labs' live marketing site \u2014 do not treat this template as 100% parity with the original."
     },
     "chat-mac": {
       "displayName": "Chat for Mac (macOS app landing page)",
@@ -357,7 +357,7 @@
           "repeatable": false
         }
       ],
-      "knownGap": "PROCESS.md \u00a711 and README.md: this route runs at ~79-80% of the original's measured page height \u2014 the layout/column-width bug (grid vs. single-column article) was already fixed, but body copy remains thinner than the original's."
+      "knownGap": "Per the source project's own README.md: this route runs at ~79-80% of the original's measured page height \u2014 the layout/column-width bug (grid vs. single-column article) was already fixed, but body copy remains thinner than the original's."
     },
     "careers": {
       "displayName": "Careers",

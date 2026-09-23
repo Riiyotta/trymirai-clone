@@ -3,7 +3,7 @@
   "layer": "primitive",
   "purpose": "Canvas-drawn orbital/ellipse illustration mark, used as a small closing flourish above a final statement.",
   "citation": "src/components/Closing.jsx:5-33, src/pages/Careers.jsx:14-42",
-  "assetRoleNote": "Deliberately neutral, reconstructed-from-geometry placeholder \u2014 NOT Mirai Labs' real brand mark. See PROCESS.md \u00a710 and README.md 'Where this differs from the original'.",
+  "assetRoleNote": "Deliberately neutral, reconstructed-from-geometry placeholder \u2014 NOT Mirai Labs' real brand mark. See the source project's own README.md, 'Where this differs from the original'.",
   "motion": "canvas-orbital-mark",
   "props": {
     "size": {

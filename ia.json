@@ -1,7 +1,7 @@
 {
   "$comment": "Information architecture for the trymirai-clone React codebase (src/App.jsx + src/pages/*.jsx + src/components/*.jsx). Route -> template grouping and section inventory are kept consistent with the sibling design-repo/ (templates/templates.json, sections/*.json), which was built and verified earlier this session from the same source files. Section ids, categories and granularity are the IA's own vocabulary (a structure map for humans) and differ in naming from the design-repo's machine content-contract ids, but the same real page is never split into two templates in one artifact and one in the other.",
   "meta": {
-    "source": "Local codebase at /Users/riyaghosh/V2 cloned/Mirai — a React 18 + Vite 5 + Tailwind v3 reference clone of the live site trymirai.com (Mirai Labs). Content, branding and design belong to Mirai Labs; this IA documents the clone's own code structure, not a page it owns rights to (see design-repo/registry.manifest.json's sourceProject note and README.md).",
+    "source": "Local codebase at /Users/riyaghosh/V2 cloned/Mirai — a React 18 + Vite 5 + Tailwind v3 reference clone of Mirai Labs' live marketing site. Content, branding and design belong to Mirai Labs; this IA documents the clone's own code structure, not a page it owns rights to (see design-repo/registry.manifest.json's sourceProject note and README.md).",
     "mirror": "measured directly from src/App.jsx and src/pages/*.jsx in this repo, cross-checked against design-repo/templates/templates.json",
     "status": "measured-from-repo",
     "productionApproved": false,

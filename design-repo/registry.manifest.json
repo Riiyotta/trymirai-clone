@@ -1,12 +1,12 @@
 {
   "repositoryId": "mirai-labs-clone-design-repo",
-  "repositoryName": "trymirai-clone / Mirai Labs design-repo",
+  "repositoryName": "Mirai Labs marketing-site clone design-repo",
   "status": "design-review-pending",
   "productionApproved": false,
   "generatedBy": "design-repo-extraction skill, Situation A (build from scratch)",
   "sourceProject": {
     "name": "trymirai-clone",
-    "description": "A React 18 + Vite 5 + Tailwind v3 local reference clone of trymirai.com (Mirai Labs). Content, branding and design belong to Mirai Labs; this is a local reference build (see README.md / PROCESS.md in the sibling source tree).",
+    "description": "A React 18 + Vite 5 + Tailwind v3 local reference clone of Mirai Labs' live marketing site. Content, branding and design belong to Mirai Labs; this is a local reference build (see README.md in the sibling source tree).",
     "note": "This field intentionally does NOT include a filesystem path — see the self-containment rule in BUILD-GUIDE.md §2.7. Build-time evidence citations live in extraction/measured-values.json instead, which degrades gracefully when no sibling source tree is present."
   },
   "defaultTheme": "light",
@@ -56,6 +56,6 @@
     "extraction/measured-values.json",
     "extraction/verify_all.py"
   ],
-  "entryPointsNote": "Every path above resolves inside this design-repo/ folder itself — none point outside it (no '../' paths to the sibling source tree, README.md/PROCESS.md of the cloned project, or reference/ screenshots). Those external citations live in extraction/measured-values.json instead. Verified: `grep -rn '\\.\\./' registry.manifest.json` returns nothing.",
-  "realCompanySourceNotice": "The source project this design-repo describes is a reference clone of a real, live company's site (trymirai.com / Mirai Labs). tokens/llm/asset-roles.json carries explicit AI-generation and licensing guidance for every media role as a compliance requirement, not a style note — see especially the real-investor-logo and third-party-company-logo roles."
+  "entryPointsNote": "Every path above resolves inside this design-repo/ folder itself — none point outside it (no '../' paths to the sibling source tree, README.md of the cloned project, or reference/ screenshots). Those external citations live in extraction/measured-values.json instead. Verified: `grep -rn '\\.\\./' registry.manifest.json` returns nothing.",
+  "realCompanySourceNotice": "The source project this design-repo describes is a reference clone of a real, live company's site (Mirai Labs' marketing site). tokens/llm/asset-roles.json carries explicit AI-generation and licensing guidance for every media role as a compliance requirement, not a style note — see especially the real-investor-logo and third-party-company-logo roles."
 }

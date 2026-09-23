@@ -2,8 +2,8 @@
 
 An AI-ready, machine-validated PageSpec system built from the `trymirai-clone`
 project: a React 18.3.1 + Vite 5.4.11 + react-router-dom 6.30.6 + Tailwind CSS
-3.4.17 local reference clone of `trymirai.com` (Mirai Labs, an on-device AI
-inference company). Every token, section contract, and template here cites
+3.4.17 local reference clone of the live marketing site of Mirai Labs, an
+on-device AI inference company. Every token, section contract, and template here cites
 real evidence from the source project — see `extraction/measured-values.json`
 for the full citation ledger.
 
@@ -82,8 +82,8 @@ instance is cross-checked against each section's own evidence.
 ## Known fidelity gaps (cited from the source project's own build docs)
 
 This design-repo describes what is **actually built** in the source project,
-not the live `trymirai.com` site. Per `PROCESS.md` §11 and the source
-project's own `README.md`:
+not Mirai Labs' live marketing site. Per the source project's own `README.md`
+("Page fidelity at 1440px"):
 
 - `/inference-runtime` ships 8 of the original live site's 10 sections (first-build fidelity 60%).
 - `/conversion-optimization-toolkit` is similarly condensed (first-build fidelity 62%).

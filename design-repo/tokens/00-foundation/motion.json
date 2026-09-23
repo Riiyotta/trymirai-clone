@@ -1,6 +1,6 @@
 {
   "$description": "Every real motion pattern observed in the source: scroll-reveal, canvas orbital marks, marquee, caret blink, accordion transitions. No pattern here is invented — each cites the file that implements it.",
-  "measuredFrom": "src/components/useInView.jsx, src/index.css:44-84, src/components/Closing.jsx, src/pages/Careers.jsx, src/components/Caret.jsx, src/pages/ChatForMac.jsx, PROCESS.md §9",
+  "measuredFrom": "src/components/useInView.jsx, src/index.css:44-84, src/components/Closing.jsx, src/pages/Careers.jsx, src/components/Caret.jsx, src/pages/ChatForMac.jsx",
   "patterns": {
     "scroll-reveal": {
       "id": "scroll-reveal",
@@ -18,7 +18,7 @@
       "mechanism": "requestAnimationFrame canvas draw loop drawing 18-26 concentric ellipses rotating over time, respecting prefers-reduced-motion (loop simply does not advance t)",
       "citation": "src/components/Closing.jsx:5-33 (240px Orb, 26 ellipses), src/pages/Careers.jsx:14-42 (200px Mark, 18 ellipses)",
       "reducedMotionFallback": "loop checks window.matchMedia('(prefers-reduced-motion: reduce)') and never calls requestAnimationFrame again after the first frame, so the mark renders as a single static frame",
-      "note": "PROCESS.md §10: these illustrations were reconstructed from measured geometry / a reference capture, not copied from Mirai Labs' original artwork — explicitly a neutral placeholder, not real brand art."
+      "note": "These illustrations were reconstructed from measured geometry / a reference capture, not copied from Mirai Labs' original artwork — explicitly a neutral placeholder, not real brand art."
     },
     "marquee": {
       "id": "marquee",
@@ -66,6 +66,6 @@
   },
   "notPresent": {
     "note": "The original site declares a service-convergence-pulse keyframe and applies it to nothing on any nav page, and has no wire-flow keyframe at all (the converging wires are SMIL <animate stroke-dashoffset>, dur 3.2s, staggered 0.35s begin, implemented in AppGrid.jsx). Recorded here so a generator does not invent a CSS keyframe of that name.",
-    "citation": "src/index.css:59-64, PROCESS.md §9"
+    "citation": "src/index.css:59-64"
   }
 }

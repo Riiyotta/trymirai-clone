@@ -101,8 +101,8 @@ MASTER-GUIDE.md §3.7 pattern.
 - Built a closed `assetRole` enum (`tokens/llm/asset-roles.json`) wired
   through the schema's node `oneOf` branches, the allowlist, and the example
   instance, with explicit AI-generation and licensing guidance for every
-  role — treating the real-company nature of the source (`trymirai.com` /
-  Mirai Labs) as a compliance requirement.
+  role — treating the real-company nature of the source (Mirai Labs' live
+  marketing site) as a compliance requirement.
 - Built `schema/semantic_validate.py` to cross-reference a PageSpec's
   declared `template` against that template's own required node sequence
   (not `nodes[]` in isolation) — the single most repeated bug class in prior

@@ -4,8 +4,8 @@ This is a separate note from the project's own `README.md` (which documents
 the clone itself, fidelity numbers, and how to run it). This one documents
 the IA artifacts added alongside it.
 
-**Reference-clone notice**: this codebase is a local reference clone of the
-live site `trymirai.com` (Mirai Labs) — content, branding and design belong
+**Reference-clone notice**: this codebase is a local reference clone of
+Mirai Labs' live marketing site — content, branding and design belong
 to Mirai Labs. The sibling `design-repo/registry.manifest.json`
 (`sourceProject` field) already states this; this IA repeats it once here
 (`ia.json`'s `meta.source`) so the IA doesn't read as documentation of an

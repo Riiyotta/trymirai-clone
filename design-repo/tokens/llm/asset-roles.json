@@ -1,5 +1,5 @@
 {
-  "$description": "Closed assetRole enum wired through schema/pagespec.schema.json (definitions.assetRole) and every section contract's media fields. This project's source is a real company's site (trymirai.com / Mirai Labs) reference-cloned into this repo — see README.md and PROCESS.md §7/§10 — so every role below carries explicit AI-generation guidance AND explicit licensing guidance. This is treated as a compliance requirement, not a style note.",
+  "$description": "Closed assetRole enum wired through schema/pagespec.schema.json (definitions.assetRole) and every section contract's media fields. This project's source is a real company's site (Mirai Labs' live marketing site) reference-cloned into this repo — see the source project's own README.md, 'Where this differs from the original' — so every role below carries explicit AI-generation guidance AND explicit licensing guidance. This is treated as a compliance requirement, not a style note.",
   "measuredFrom": "public/ asset inventory (~40 files) cross-referenced against every <img>/background usage in src/**/*.jsx",
   "roles": {
     "brand-mark-placeholder": {
@@ -8,7 +8,7 @@
       "generationGuidance": "may-generate-new",
       "generationNote": "A generator MAY produce a new abstract/geometric mark or a new text-set wordmark in this style.",
       "licensingGuidance": "MUST NOT attempt to reproduce, approximate, or reverse-engineer Mirai Labs' real logo/wordmark/brand identity. Any generated mark must remain visibly generic/abstract, never a plausible stand-in for the real company's actual brand art.",
-      "citation": "README.md 'Where this differs from the original'; PROCESS.md §7, §10"
+      "citation": "README.md 'Where this differs from the original' (source project's own README.md)"
     },
     "real-investor-logo": {
       "description": "The 8 investor/team backer logos on /about-us: Y Combinator, Stripe, Uncork Capital, MLX, and four named individuals (Ben, Gokul, Marcin, Mati).",

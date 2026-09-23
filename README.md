@@ -1,7 +1,7 @@
-# trymirai.com — local clone
+# Marketing site — local clone
 
-A React 18 + Vite 5 + Tailwind v3 rebuild of the `https://trymirai.com` homepage,
-measured against the live site rather than eyeballed.
+A React 18 + Vite 5 + Tailwind v3 rebuild of Mirai Labs' live marketing site
+homepage, measured against the live site rather than eyeballed.
 
 ```bash
 npm install
@@ -48,8 +48,9 @@ Every route: correct title and meta, exactly one `h1`, zero console errors, zero
 horizontal scroll at 1440, no broken images, all scroll reveals firing.
 
 The inner pages below 100% are structurally correct but run shorter than the
-originals — the written body copy is thinner, and the two large product pages are
-missing some of their sections. See PROCESS.md §11.
+originals — the written body copy is thinner, and the two large product pages
+(`/inference-runtime`, `/conversion-optimization-toolkit`) are missing some of
+their sections (`/inference-runtime` ships 8 of the original's 10 sections).
 
 ## Homepage fidelity at 1440px
 
@@ -92,7 +93,8 @@ Shell is `max-w-[1200px] px-5 min-[1240px]:px-0` with `0.5px` vertical rails at 
 all three served locally from `public/assets/fonts/` (the subsets the original ships).
 Fraunces is variable, and the optical-size axis matters: 48px headings use
 `opsz 72`, 40px headings use `opsz 80`, both at `SOFT 56, WONK 0, wght 350`.
-Getting `opsz` wrong renders the same string measurably wider — see PROCESS.md.
+Getting `opsz` wrong renders the same string measurably wider, confirmed by
+reading the live site's computed `font-variation-settings` per heading.
 
 ## Assets
 

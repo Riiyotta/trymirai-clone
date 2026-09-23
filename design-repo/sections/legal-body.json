@@ -50,6 +50,6 @@
     }
   },
   "notes": [
-    "The real legal text on trymirai.com is Mirai Labs' own legal copy and is not reproduced \u2014 src/pages/Legal.jsx:3-4, 20-21. A generated PageSpec must preserve this disclosure rather than fabricating real-sounding legal terms."
+    "The real legal text on Mirai Labs' live marketing site is Mirai Labs' own legal copy and is not reproduced \u2014 src/pages/Legal.jsx:3-4, 20-21. A generated PageSpec must preserve this disclosure rather than fabricating real-sounding legal terms."
   ]
 }
